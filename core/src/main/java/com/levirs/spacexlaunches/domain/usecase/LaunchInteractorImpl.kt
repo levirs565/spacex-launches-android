@@ -11,11 +11,11 @@ class LaunchInteractorImpl(
     private val mRepository: LaunchesRepository
 ): LaunchesUseCase {
     override fun getLaunches(
-        search: String,
+        filterByName: String,
         filterByState: LaunchEntity.State?,
         sortBy: LaunchSortBy
     ): Flow<ResultState<PagingData<LaunchEntity>>>
-        = mRepository.getLaunches(search, filterByState, sortBy)
+        = mRepository.getLaunches(filterByName, filterByState, sortBy)
 
 
     override fun getFavoriteLaunches(): Flow<PagingData<LaunchEntity>>
