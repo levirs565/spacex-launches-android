@@ -1,5 +1,6 @@
 object Versions {
     const val kotlin = "1.4.21"
+    const val kotlinCoroutine = "1.4.2"
 
     const val coreKtx = "1.3.2"
     const val appCompat = "1.2.0"
@@ -11,4 +12,6 @@ object Versions {
 
     const val retrofit = "2.9.0"
     const val threetenbp = "1.5.0"
+
+    const val paging = "3.0.0-alpha11"
 }

@@ -1,5 +1,7 @@
 object Dependencies {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+    const val kotlinCoroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutine}"
+
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
@@ -11,4 +13,6 @@ object Dependencies {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val threetenbp = "org.threeten:threetenbp:${Versions.threetenbp}"
+
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
 }

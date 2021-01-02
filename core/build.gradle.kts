@@ -38,7 +38,9 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Dependencies.kotlin)
+    implementation(Dependencies.kotlinCoroutineCore)
     implementation(Dependencies.coreKtx)
+    implementation(Dependencies.paging)
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitGson)
     implementation(Dependencies.threetenbp)
