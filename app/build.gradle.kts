@@ -37,12 +37,12 @@ android {
 
 dependencies {
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
-    implementation("androidx.core:core-ktx:${Versions.coreKtx}")
-    implementation("androidx.appcompat:appcompat:${Versions.appCompat}")
-    implementation("com.google.android.material:material:${Versions.material}")
-    implementation("androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}")
-    testImplementation("junit:junit:${Versions.junitVersion}")
-    androidTestImplementation("androidx.test.ext:junit:${Versions.extJunit}")
-    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espressoCore}")
+    implementation(Dependencies.kotlin)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.appCompat)
+    implementation(Dependencies.material)
+    implementation(Dependencies.constraintLayout)
+    testImplementation(Dependencies.junit)
+    androidTestImplementation(Dependencies.extJunit)
+    androidTestImplementation(Dependencies.espressoCore)
 }

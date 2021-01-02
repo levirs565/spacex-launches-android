@@ -37,9 +37,9 @@ android {
 
 dependencies {
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
-    implementation("androidx.core:core-ktx:${Versions.coreKtx}")
-    testImplementation("junit:junit:${Versions.junitVersion}")
-    androidTestImplementation("androidx.test.ext:junit:${Versions.extJunit}")
-    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espressoCore}")
+    implementation(Dependencies.kotlin)
+    implementation(Dependencies.coreKtx)
+    testImplementation(Dependencies.junit)
+    androidTestImplementation(Dependencies.extJunit)
+    androidTestImplementation(Dependencies.espressoCore)
 }
