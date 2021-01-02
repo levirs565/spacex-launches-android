@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -41,6 +42,8 @@ dependencies {
     implementation(Dependencies.kotlinCoroutineCore)
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.paging)
+    implementation(Dependencies.roomRuntime)
+    kapt(Dependencies.roomCompiler)
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitGson)
     implementation(Dependencies.threetenbp)

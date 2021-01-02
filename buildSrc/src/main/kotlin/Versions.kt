@@ -14,4 +14,5 @@ object Versions {
     const val threetenbp = "1.5.0"
 
     const val paging = "3.0.0-alpha11"
+    const val room = "2.3.0-alpha04"
 }
