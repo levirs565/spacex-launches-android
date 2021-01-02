@@ -7,4 +7,8 @@ object Dependencies {
     const val junit = "junit:junit:${Versions.junitVersion}"
     const val extJunit = "androidx.test.ext:junit:${Versions.extJunit}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val threetenbp = "org.threeten:threetenbp:${Versions.threetenbp}"
 }

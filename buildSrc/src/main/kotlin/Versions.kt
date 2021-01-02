@@ -8,4 +8,7 @@ object Versions {
     const val junitVersion = "4.13.1"
     const val espressoCore = "3.3.0"
     const val extJunit = "1.1.2"
+
+    const val retrofit = "2.9.0"
+    const val threetenbp = "1.5.0"
 }
