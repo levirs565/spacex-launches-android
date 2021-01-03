@@ -7,7 +7,7 @@ data class LaunchEntity(
     val name: String,
     val flightNumber: Int,
     val details: String,
-    val rocketName: String,
+    val rocket: RocketEntity,
     val state: State,
     val smallPatch: String,
     val largePatch: String,
