@@ -1,6 +1,7 @@
 package com.levirs.spacexlaunches.data.local.entity
 
 import androidx.room.*
+import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import org.threeten.bp.OffsetDateTime
 
 @Entity(tableName = "launches")
@@ -32,11 +33,46 @@ data class LocalLaunchEntity(
         val webcast: String,
         val wikipedia: String,
         val article: String,
-    )
+    ) {
+        fun toDomainLaunchLinks() = LaunchEntity.Links(
+            webcast = this.webcast,
+            wikipedia = this.wikipedia,
+            article = this.article
+        )
+        companion object {
+            fun fromDomainLaunchLinks(links: LaunchEntity.Links) = Links(
+                webcast = links.webcast,
+                wikipedia = links.wikipedia,
+                article = links.article
+            )
+        }
+    }
 
     enum class State {
         UPCOMING,
         SUCCESS,
-        FAIL
+        FAIL;
+
+        fun toDomainLaunchState() = LaunchEntity.State.valueOf(toString())
+        companion object {
+            fun fromDomainLaunchState(state: LaunchEntity.State?) =  valueOf(state.toString())
+        }
+    }
+
+    companion object {
+        fun fromDomainLaunch(launch: LaunchEntity) = LocalLaunchEntity(
+            id = launch.id,
+            name = launch.name,
+            flightNumber = launch.flightNumber,
+            details = launch.details,
+            rocketId = launch.rocket.id,
+            state = State.fromDomainLaunchState(launch.state),
+            smallPatch = launch.smallPatch,
+            largePatch = launch.largePatch,
+            links = Links.fromDomainLaunchLinks(launch.links),
+            launchDateTime = launch.launchDateTime,
+            datePrecision = launch.datePrecision,
+            isFavorite = launch.isFavorite
+        )
     }
 }
