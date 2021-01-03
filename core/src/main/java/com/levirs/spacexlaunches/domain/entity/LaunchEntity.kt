@@ -11,11 +11,18 @@ data class LaunchEntity(
     val state: State,
     val smallPatch: String,
     val largePatch: String,
-    val links: Map<String, String>,
+    val links: Links,
     val launchDateTime: OffsetDateTime,
     val datePrecision: String,
     val isFavorite: Boolean
 ) {
+
+    data class Links(
+        val webcast: String,
+        val wikipedia: String,
+        val article: String,
+    )
+
     enum class State {
         UPCOMING,
         SUCCESS,
