@@ -10,5 +10,5 @@ interface LaunchesUseCase {
     fun getLaunches(filterByName: String, filterByState: LaunchEntity.State?, sortBy: LaunchSortBy)
         : Flow<ResultState<PagingData<LaunchEntity>>>
     fun getFavoriteLaunches(): Flow<PagingData<LaunchEntity>>
-    fun toggleFavoriteLaunch(launchEntity: LaunchEntity)
+    suspend fun toggleFavoriteLaunch(launchEntity: LaunchEntity)
 }

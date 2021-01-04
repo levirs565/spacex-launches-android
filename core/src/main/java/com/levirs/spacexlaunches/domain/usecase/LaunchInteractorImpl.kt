@@ -21,7 +21,7 @@ class LaunchInteractorImpl(
     override fun getFavoriteLaunches(): Flow<PagingData<LaunchEntity>>
         = mRepository.getFavoriteLaunches()
 
-    override fun toggleFavoriteLaunch(launchEntity: LaunchEntity) {
+    override suspend fun toggleFavoriteLaunch(launchEntity: LaunchEntity) {
         mRepository.updateLaunch(
             launchEntity.copy(isFavorite = !launchEntity.isFavorite)
         )

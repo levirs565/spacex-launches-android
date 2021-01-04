@@ -29,7 +29,7 @@ class LaunchesDataSource(
     private var mRocketsChecked = false
     private var mLaunchesChecked = false
 
-    private fun checkRocket() {
+    private suspend fun checkRocket() {
         if (mRocketsChecked) return
 
         if (mLocalDataSource.getAllRocketsIds().isEmpty())
@@ -39,7 +39,7 @@ class LaunchesDataSource(
         mRocketsChecked = true
     }
 
-    private fun checkLaunches() {
+    private suspend fun checkLaunches() {
         if (mLaunchesChecked) return
 
         if (mLocalDataSource.getAllLaunchesIds().isEmpty())
@@ -85,7 +85,7 @@ class LaunchesDataSource(
         }
     }
 
-    override fun updateLaunch(launch: LaunchEntity) {
+    override suspend fun updateLaunch(launch: LaunchEntity) {
         mLocalDataSource.updateLaunch(LocalLaunchEntity.fromDomainLaunch(launch))
     }
 }

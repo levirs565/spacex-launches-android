@@ -11,5 +11,5 @@ interface LaunchesRepository {
     fun getLaunches(filterByName: String, filterByState: LaunchEntity.State?, sortBy: LaunchSortBy)
         : Flow<ResultState<PagingData<LaunchEntity>>>
     fun getFavoriteLaunches(): Flow<PagingData<LaunchEntity>>
-    fun updateLaunch(launch: LaunchEntity)
+    suspend fun updateLaunch(launch: LaunchEntity)
 }

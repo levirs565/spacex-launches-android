@@ -31,10 +31,10 @@ class LocalDataSource(
         return mLaunchDao.getLaunchesWithRocket(SimpleSQLiteQuery(queryString))
     }
     fun getFavoriteLaunches() = mLaunchDao.getFavoriteLaunches()
-    fun getAllLaunchesIds() = mLaunchDao.getAllLaunchesIds()
-    fun saveLaunch(launch: LocalLaunchEntity) = mLaunchDao.saveLaunches(launch)
-    fun updateLaunch(launch: LocalLaunchEntity) = mLaunchDao.updateLaunches(launch)
+    suspend fun getAllLaunchesIds() = mLaunchDao.getAllLaunchesIds()
+    suspend fun saveLaunch(launch: LocalLaunchEntity) = mLaunchDao.saveLaunches(launch)
+    suspend fun updateLaunch(launch: LocalLaunchEntity) = mLaunchDao.updateLaunches(launch)
 
-    fun getAllRocketsIds() = mRocketDao.getAllRocketIds()
-    fun saveRocket(rocket: LocalRocketEntity) = mRocketDao.saveRocket(rocket)
+    suspend fun getAllRocketsIds() = mRocketDao.getAllRocketIds()
+    suspend fun saveRocket(rocket: LocalRocketEntity) = mRocketDao.saveRocket(rocket)
 }

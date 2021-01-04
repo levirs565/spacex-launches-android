@@ -13,12 +13,12 @@ interface LaunchDao {
     @RawQuery(observedEntities = [LocalLaunchEntity::class])
     fun getLaunchesWithRocket(rawQuery: SupportSQLiteQuery): PagingSource<Int, LocalLaunchRocketEntity>
     @Insert
-    fun saveLaunches(launch: LocalLaunchEntity)
+    suspend fun saveLaunches(launch: LocalLaunchEntity)
     @Transaction
     @Query("SELECT * FROM launches")
     fun getFavoriteLaunches(): PagingSource<Int, LocalLaunchRocketEntity>
     @Update
-    fun updateLaunches(launch: LocalLaunchEntity)
+    suspend fun updateLaunches(launch: LocalLaunchEntity)
     @Query("SELECT id from rockets")
-    fun getAllLaunchesIds(): List<String>
+    suspend fun getAllLaunchesIds(): List<String>
 }
