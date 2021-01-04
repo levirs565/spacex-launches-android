@@ -6,7 +6,7 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.levirs.spacexlaunches.data.local.LocalDataSource
 import com.levirs.spacexlaunches.data.local.entity.LocalLaunchEntity
-import com.levirs.spacexlaunches.data.remote.RemoteDataSource
+import com.levirs.spacexlaunches.data.remote.RemoteApi
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.repository.LaunchesRepository
 import com.levirs.spacexlaunches.domain.util.LaunchSortBy
@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.map
 import java.lang.Exception
 
 class LaunchesDataSource(
-    private val mRemoteDataSource: RemoteDataSource,
+    private val mRemoteApi: RemoteApi,
     private val mLocalDataSource: LocalDataSource
 ): LaunchesRepository {
     private val mPageConfig = PagingConfig(
@@ -33,7 +33,7 @@ class LaunchesDataSource(
         if (mRocketsChecked) return
 
         if (mLocalDataSource.getAllRocketsIds().isEmpty())
-            mRemoteDataSource.getRockets().forEach {
+            mRemoteApi.getRockets().forEach {
                 mLocalDataSource.saveRocket(it.toLocalRocket())
             }
         mRocketsChecked = true
@@ -43,7 +43,7 @@ class LaunchesDataSource(
         if (mLaunchesChecked) return
 
         if (mLocalDataSource.getAllLaunchesIds().isEmpty())
-            mRemoteDataSource.getLaunches().forEach {
+            mRemoteApi.getLaunches().forEach {
                 mLocalDataSource.saveLaunch(it.toLocalLaunch())
             }
         mLaunchesChecked = true
