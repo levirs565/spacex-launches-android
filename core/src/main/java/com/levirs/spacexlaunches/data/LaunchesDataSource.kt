@@ -16,8 +16,11 @@ import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import java.lang.Exception
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LaunchesDataSource(
+@Singleton
+class LaunchesDataSource @Inject constructor(
     private val mRemoteApi: RemoteApi,
     private val mLocalDataSource: LocalDataSource
 ): LaunchesRepository {

@@ -47,6 +47,8 @@ dependencies {
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitGson)
     implementation(Dependencies.threetenbp)
+    implementation(Dependencies.daggerRuntime)
+    kapt(Dependencies.daggerCompiler)
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.extJunit)
     androidTestImplementation(Dependencies.espressoCore)

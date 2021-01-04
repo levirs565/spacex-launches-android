@@ -6,8 +6,11 @@ import com.levirs.spacexlaunches.domain.repository.LaunchesRepository
 import com.levirs.spacexlaunches.domain.util.LaunchSortBy
 import com.levirs.spacexlaunches.domain.util.ResultState
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LaunchInteractorImpl(
+@Singleton
+class LaunchInteractorImpl @Inject constructor(
     private val mRepository: LaunchesRepository
 ): LaunchesUseCase {
     override fun getLaunches(

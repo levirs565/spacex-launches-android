@@ -15,4 +15,6 @@ object Versions {
 
     const val paging = "3.0.0-alpha11"
     const val room = "2.3.0-alpha04"
+
+    const val dagger = "2.30.1"
 }

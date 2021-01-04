@@ -6,8 +6,11 @@ import com.levirs.spacexlaunches.data.local.entity.LocalLaunchEntity
 import com.levirs.spacexlaunches.data.local.entity.LocalLaunchRocketEntity
 import com.levirs.spacexlaunches.data.local.entity.LocalRocketEntity
 import com.levirs.spacexlaunches.domain.util.LaunchSortBy
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LocalDataSource(
+@Singleton
+class LocalDataSource @Inject constructor(
     private val mLaunchDao: LaunchDao,
     private val mRocketDao: RocketDao
 ) {
