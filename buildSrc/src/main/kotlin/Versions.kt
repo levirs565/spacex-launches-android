@@ -17,4 +17,6 @@ object Versions {
     const val room = "2.3.0-alpha04"
 
     const val dagger = "2.30.1"
+
+    const val navigation = "2.3.2"
 }
