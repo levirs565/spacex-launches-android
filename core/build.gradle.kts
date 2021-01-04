@@ -43,6 +43,7 @@ dependencies {
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.paging)
     implementation(Dependencies.roomRuntime)
+    implementation(Dependencies.roomKtx)
     kapt(Dependencies.roomCompiler)
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitGson)
