@@ -36,21 +36,37 @@ android {
     }
 }
 
+val kotlin: String by rootProject.extra
+val kotlinCoroutineCore: String by rootProject.extra
+val coreKtx: String by rootProject.extra
+val paging: String by rootProject.extra
+val roomRuntime: String by rootProject.extra
+val roomKtx: String by rootProject.extra
+val roomCompiler: String by rootProject.extra
+val retrofit: String by rootProject.extra
+val retrofitGson: String by rootProject.extra
+val threetenbp: String by rootProject.extra
+val daggerRuntime: String by rootProject.extra
+val daggerCompiler: String by rootProject.extra
+val junit: String by rootProject.extra
+val extJunit: String by rootProject.extra
+val espressoCore: String by rootProject.extra
+
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Dependencies.kotlin)
-    implementation(Dependencies.kotlinCoroutineCore)
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.paging)
-    implementation(Dependencies.roomRuntime)
-    implementation(Dependencies.roomKtx)
-    kapt(Dependencies.roomCompiler)
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.retrofitGson)
-    implementation(Dependencies.threetenbp)
-    implementation(Dependencies.daggerRuntime)
-    kapt(Dependencies.daggerCompiler)
-    testImplementation(Dependencies.junit)
-    androidTestImplementation(Dependencies.extJunit)
-    androidTestImplementation(Dependencies.espressoCore)
+    implementation(kotlin)
+    implementation(kotlinCoroutineCore)
+    implementation(coreKtx)
+    implementation(paging)
+    implementation(roomRuntime)
+    implementation(roomKtx)
+    kapt(roomCompiler)
+    implementation(retrofit)
+    implementation(retrofitGson)
+    implementation(threetenbp)
+    implementation(daggerRuntime)
+    kapt(daggerCompiler)
+    testImplementation(junit)
+    androidTestImplementation(extJunit)
+    androidTestImplementation(espressoCore)
 }

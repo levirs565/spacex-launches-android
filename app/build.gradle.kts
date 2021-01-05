@@ -38,17 +38,28 @@ android {
     }
 }
 
+val kotlin: String by rootProject.extra
+val coreKtx: String by rootProject.extra
+val appCompat: String by rootProject.extra
+val material: String by rootProject.extra
+val constraintLayout: String by rootProject.extra
+val navigationFragment: String by rootProject.extra
+val navigationUi: String by rootProject.extra
+val junit: String by rootProject.extra
+val extJunit: String by rootProject.extra
+val espressoCore: String by rootProject.extra
+
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Dependencies.kotlin)
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.appCompat)
-    implementation(Dependencies.material)
-    implementation(Dependencies.constraintLayout)
+    implementation(kotlin)
+    implementation(coreKtx)
+    implementation(appCompat)
+    implementation(material)
+    implementation(constraintLayout)
     implementation(project(":core"))
-    implementation(Dependencies.navigationFragment)
-    implementation(Dependencies.navigationUi)
-    testImplementation(Dependencies.junit)
-    androidTestImplementation(Dependencies.extJunit)
-    androidTestImplementation(Dependencies.espressoCore)
+    implementation(navigationFragment)
+    implementation(navigationUi)
+    testImplementation(junit)
+    androidTestImplementation(extJunit)
+    androidTestImplementation(espressoCore)
 }
