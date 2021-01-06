@@ -26,7 +26,7 @@ class NetworkModule {
 
     @Provides
     fun provideRemoteApi(okHttpClient: OkHttpClient, converter: GsonConverterFactory) = Retrofit.Builder()
-        .baseUrl("https://api.spacexdata.com/v4")
+        .baseUrl("https://api.spacexdata.com/v4/")
         .client(okHttpClient)
         .addConverterFactory(converter)
         .build()
