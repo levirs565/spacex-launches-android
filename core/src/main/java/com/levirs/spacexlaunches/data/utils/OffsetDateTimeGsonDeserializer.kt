@@ -16,7 +16,7 @@ class OffsetDateTimeGsonDeserializer: JsonDeserializer<OffsetDateTime> {
         context: JsonDeserializationContext?
     ): OffsetDateTime? {
         return json?.let {
-            OffsetDateTime.parse(it.asJsonPrimitive.toString(), mFormatter)
+            OffsetDateTime.parse(it.asJsonPrimitive.asString, mFormatter)
         }
     }
 }
