@@ -19,6 +19,6 @@ interface LaunchDao {
     fun getFavoriteLaunches(): PagingSource<Int, LocalLaunchRocketEntity>
     @Update
     suspend fun updateLaunches(launch: LocalLaunchEntity)
-    @Query("SELECT id from rockets")
+    @Query("SELECT id from launches")
     suspend fun getAllLaunchesIds(): List<String>
 }
