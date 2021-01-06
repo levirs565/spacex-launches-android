@@ -18,4 +18,6 @@ interface CoreComponent {
     interface Factory {
         fun build(@BindsInstance context: Context): CoreComponent
     }
+
+    fun provideLaunchesUseCase(): LaunchesUseCase
 }
