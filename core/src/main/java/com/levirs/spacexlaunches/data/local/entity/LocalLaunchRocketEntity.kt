@@ -22,7 +22,7 @@ data class LocalLaunchRocketEntity(
         state = launch.state.toDomainLaunchState(),
         smallPatch = launch.smallPatch,
         largePatch = launch.largePatch,
-        links = launch.links.toDomainLaunchLinks(),
+        links = launch.links?.toDomainLaunchLinks(),
         launchDateTime = launch.launchDateTime,
         datePrecision = launch.datePrecision,
         isFavorite = launch.isFavorite ?: false,

@@ -9,10 +9,10 @@ data class RemoteLaunchEntity(
     val name: String,
     @SerializedName("flight_number")
     val flightNumber: Int,
-    val details: String,
+    val details: String?,
     @SerializedName("rocket")
     val rocketId: String,
-    val success: Boolean,
+    val success: Boolean?,
     val upcoming: Boolean,
     val links: Links,
     @SerializedName("date_precision")
@@ -23,9 +23,9 @@ data class RemoteLaunchEntity(
 
     data class Links(
         val patch: Patch,
-        val webcast: String,
-        val wikipedia: String,
-        val article: String,
+        val webcast: String?,
+        val wikipedia: String?,
+        val article: String?,
     ) {
         fun toLocalLaunchLinks() = LocalLaunchEntity.Links(
             webcast = this.webcast,
@@ -34,8 +34,8 @@ data class RemoteLaunchEntity(
         )
 
         data class Patch(
-            val small: String,
-            val large: String
+            val small: String?,
+            val large: String?
         )
 
     }
@@ -48,7 +48,7 @@ data class RemoteLaunchEntity(
         rocketId = this.rocketId,
         state = when {
             upcoming -> LocalLaunchEntity.State.UPCOMING
-            success -> LocalLaunchEntity.State.SUCCESS
+            success ?: false -> LocalLaunchEntity.State.SUCCESS
             else -> LocalLaunchEntity.State.FAIL
         },
         smallPatch = this.links.patch.small,

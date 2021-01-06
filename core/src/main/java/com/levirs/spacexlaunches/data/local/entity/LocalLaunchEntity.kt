@@ -11,16 +11,16 @@ data class LocalLaunchEntity(
     val name: String,
     @ColumnInfo(name = "flight_number")
     val flightNumber: Int,
-    val details: String,
+    val details: String?,
     @ColumnInfo(name = "rocket_id")
     val rocketId: String,
     val state: State,
     @ColumnInfo(name = "small_patch")
-    val smallPatch: String,
+    val smallPatch: String?,
     @ColumnInfo(name = "large_patch")
-    val largePatch: String,
+    val largePatch: String?,
     @Embedded
-    val links: Links,
+    val links: Links?,
     @ColumnInfo(name = "launch_date_time")
     val launchDateTime: OffsetDateTime,
     @ColumnInfo(name = "date_precision")
@@ -30,9 +30,9 @@ data class LocalLaunchEntity(
 ) {
 
     data class Links(
-        val webcast: String,
-        val wikipedia: String,
-        val article: String,
+        val webcast: String?,
+        val wikipedia: String?,
+        val article: String?,
     ) {
         fun toDomainLaunchLinks() = LaunchEntity.Links(
             webcast = this.webcast,
@@ -69,7 +69,9 @@ data class LocalLaunchEntity(
             state = State.fromDomainLaunchState(launch.state),
             smallPatch = launch.smallPatch,
             largePatch = launch.largePatch,
-            links = Links.fromDomainLaunchLinks(launch.links),
+            links = launch.links?.let {
+                Links.fromDomainLaunchLinks(it)
+            },
             launchDateTime = launch.launchDateTime,
             datePrecision = launch.datePrecision,
             isFavorite = launch.isFavorite
