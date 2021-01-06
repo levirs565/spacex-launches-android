@@ -18,6 +18,8 @@ val roomVersion = "2.3.0-alpha04"
 val daggerVersion = "2.30.1"
 
 val navigationVersion = "2.3.2"
+val recyclerViewVersion = "1.1.0"
+val lifecycleVersion = "2.2.0"
 
 val kotlin by extra( "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
 val kotlinPlugin by extra("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
@@ -45,3 +47,7 @@ val daggerCompiler by extra( "com.google.dagger:dagger-compiler:${daggerVersion}
 
 val navigationFragment by extra( "androidx.navigation:navigation-fragment-ktx:${navigationVersion}")
 val navigationUi by extra( "androidx.navigation:navigation-ui-ktx:${navigationVersion}")
+
+val recyclerView by extra("androidx.recyclerview:recyclerview:$recyclerViewVersion")
+val viewModel by extra("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+val liveData by extra("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")

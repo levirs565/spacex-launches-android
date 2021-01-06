@@ -1,5 +1,6 @@
 package com.levirs.spacexlaunches.data
 
+import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -11,10 +12,8 @@ import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.repository.LaunchesRepository
 import com.levirs.spacexlaunches.domain.util.LaunchSortBy
 import com.levirs.spacexlaunches.domain.util.ResultState
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emitAll
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 import java.lang.Exception
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -62,6 +61,7 @@ class LaunchesDataSource @Inject constructor(
             checkRocket()
             checkLaunches()
         } catch (e: Exception) {
+            e.printStackTrace()
             emit(ResultState.error<PagingData<LaunchEntity>>(e.toString()))
             return@flow
         }
@@ -77,7 +77,7 @@ class LaunchesDataSource @Inject constructor(
                 item.toDomainLaunch()
             })
         })
-    }
+    }.flowOn(Dispatchers.IO)
 
     override fun getFavoriteLaunches(): Flow<PagingData<LaunchEntity>>
         = Pager(mPageConfig) {

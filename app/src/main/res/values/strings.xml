@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SpaceX Launches</string>
+
+    <string name="launch_state_upcoming">Akan Datang</string>
+    <string name="launch_state_success">Berhasil</string>
+    <string name="launch_state_fail">Gagal</string>
 </resources>
