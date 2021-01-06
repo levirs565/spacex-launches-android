@@ -1,5 +1,6 @@
 package com.levirs.spacexlaunches.domain.entity
 
+import com.levirs.spacexlaunches.domain.util.DateTimePrecision
 import org.threeten.bp.OffsetDateTime
 
 data class LaunchEntity(
@@ -13,7 +14,7 @@ data class LaunchEntity(
     val largePatch: String?,
     val links: Links?,
     val launchDateTime: OffsetDateTime,
-    val datePrecision: String,
+    val datePrecision: DateTimePrecision,
     val isFavorite: Boolean
 ) {
 

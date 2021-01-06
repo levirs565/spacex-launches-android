@@ -2,6 +2,7 @@ package com.levirs.spacexlaunches.data.utils
 
 import androidx.room.TypeConverter
 import com.levirs.spacexlaunches.data.local.entity.LocalLaunchEntity
+import com.levirs.spacexlaunches.domain.util.DateTimePrecision
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.format.DateTimeFormatter
 
@@ -33,6 +34,20 @@ object RoomTypeConverter {
     fun stringToState(string: String?): LocalLaunchEntity.State? {
         return string?.let {
             LocalLaunchEntity.State.valueOf(it)
+        }
+    }
+
+    @TypeConverter
+    @JvmStatic
+    fun dateTimePrecisionToString(dateTimePrecision: DateTimePrecision?): String? {
+        return dateTimePrecision?.name
+    }
+
+    @TypeConverter
+    @JvmStatic
+    fun stringToDateTimePrecision(string: String?): DateTimePrecision? {
+        return string?.let {
+            DateTimePrecision.valueOf(it)
         }
     }
 }

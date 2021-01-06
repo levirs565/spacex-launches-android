@@ -2,7 +2,9 @@ package com.levirs.spacexlaunches.data.remote.entity
 
 import com.google.gson.annotations.SerializedName
 import com.levirs.spacexlaunches.data.local.entity.LocalLaunchEntity
+import com.levirs.spacexlaunches.domain.util.DateTimePrecision
 import org.threeten.bp.OffsetDateTime
+import java.util.*
 
 data class RemoteLaunchEntity(
     val id: String,
@@ -55,7 +57,7 @@ data class RemoteLaunchEntity(
         largePatch = this.links.patch.large,
         links = this.links.toLocalLaunchLinks(),
         launchDateTime = this.dateTime,
-        datePrecision = this.datePrecision,
+        datePrecision = DateTimePrecision.valueOf(this.datePrecision.toUpperCase(Locale.getDefault())),
         isFavorite = null
     )
 }

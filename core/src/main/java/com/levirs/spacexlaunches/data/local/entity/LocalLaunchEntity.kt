@@ -2,6 +2,7 @@ package com.levirs.spacexlaunches.data.local.entity
 
 import androidx.room.*
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
+import com.levirs.spacexlaunches.domain.util.DateTimePrecision
 import org.threeten.bp.OffsetDateTime
 
 @Entity(tableName = "launches")
@@ -24,7 +25,7 @@ data class LocalLaunchEntity(
     @ColumnInfo(name = "launch_date_time")
     val launchDateTime: OffsetDateTime,
     @ColumnInfo(name = "date_precision")
-    val datePrecision: String,
+    val datePrecision: DateTimePrecision,
     @ColumnInfo(name = "is_favorite")
     val isFavorite: Boolean?
 ) {
