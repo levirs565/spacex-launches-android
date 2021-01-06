@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
+import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
 import org.threeten.bp.format.DateTimeFormatter
+import org.threeten.bp.format.DateTimeFormatterBuilder
 
 class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolder>(
     DIFF_CALLBACK
@@ -50,7 +52,9 @@ class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolde
                 LaunchEntity.State.SUCCESS -> R.string.launch_state_success
                 LaunchEntity.State.FAIL -> R.string.launch_state_fail
             })
-            tvDate.text = data.launchDateTime.format(DateTimeFormatter.ISO_DATE)
+
+            tvDate.text = LaunchDateTimeFormatter(root.context, data.datePrecision)
+                .format(data.launchDateTime)
         }
     }
 
