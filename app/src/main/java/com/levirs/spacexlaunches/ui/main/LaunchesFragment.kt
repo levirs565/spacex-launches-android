@@ -54,10 +54,8 @@ class LaunchesFragment: Fragment() {
 
         mViewModel.launches.observe(viewLifecycleOwner, {
             Log.d(TAG, it.toString())
-            Log.d(TAG, it.isSuccess().toString())
             if (it.isSuccess()) {
                 mAdapter.submitData(viewLifecycleOwner.lifecycle, it.data!!.map { item ->
-                    Log.d(TAG, item.toString())
                     item
                 })
             }

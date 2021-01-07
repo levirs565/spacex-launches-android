@@ -20,12 +20,10 @@ class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolde
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<LaunchEntity>() {
             override fun areItemsTheSame(oldItem: LaunchEntity, newItem: LaunchEntity): Boolean {
-                Log.d(LaunchesFragment.TAG, "Items same")
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: LaunchEntity, newItem: LaunchEntity): Boolean {
-                Log.d(LaunchesFragment.TAG, "Contents same")
                 return oldItem == newItem
             }
 
@@ -46,7 +44,6 @@ class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolde
 
     class ViewHolder(val binding: ItemLaunchBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: LaunchEntity) = with(binding) {
-            Log.d(LaunchesFragment.TAG, "Bind-bind ")
             tvName.text = data.name
             val stateTextColor: Pair<Int, Int> = when (data.state) {
                 LaunchEntity.State.UPCOMING -> Pair(R.string.launch_state_upcoming, R.color.grey_900)
