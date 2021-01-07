@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
@@ -55,6 +56,12 @@ class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolde
 
             tvDate.text = LaunchDateTimeFormatter(root.context, data.datePrecision)
                 .format(data.launchDateTime)
+            if (data.smallPatch != null)
+                imgPatch.load(data.smallPatch) {
+                    placeholder(R.drawable.img_placeholder_loading)
+                    error(R.drawable.img_placeholder_broken)
+                }
+            else imgPatch.load(R.drawable.img_rocket_blank)
         }
     }
 

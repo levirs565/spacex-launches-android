@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:width="96dp"
+                android:height="96dp"/>
+            <solid android:color="?colorAccent"/>
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/ic_broken_image_white_64"
+        android:gravity="center">
+    </item>
+</layer-list>

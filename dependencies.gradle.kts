@@ -20,6 +20,7 @@ val daggerVersion = "2.30.1"
 val navigationVersion = "2.3.2"
 val recyclerViewVersion = "1.1.0"
 val lifecycleVersion = "2.2.0"
+val coilVersion = "1.1.0"
 
 val kotlin by extra( "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
 val kotlinPlugin by extra("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
@@ -51,3 +52,4 @@ val navigationUi by extra( "androidx.navigation:navigation-ui-ktx:${navigationVe
 val recyclerView by extra("androidx.recyclerview:recyclerview:$recyclerViewVersion")
 val viewModel by extra("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 val liveData by extra("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+val coil by extra("io.coil-kt:coil:$coilVersion")

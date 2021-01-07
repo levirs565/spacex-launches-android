@@ -55,6 +55,7 @@ val paging: String by rootProject.extra
 val daggerRuntime: String by rootProject.extra
 val daggerCompiler: String by rootProject.extra
 val threetenbp: String by rootProject.extra
+val coil: String by rootProject.extra
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
@@ -71,6 +72,7 @@ dependencies {
     implementation(paging)
     implementation(daggerRuntime)
     implementation(threetenbp)
+    implementation(coil)
     kapt(daggerCompiler)
     testImplementation(junit)
     androidTestImplementation(extJunit)
