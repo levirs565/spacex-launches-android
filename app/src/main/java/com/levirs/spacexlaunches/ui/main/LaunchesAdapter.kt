@@ -48,11 +48,13 @@ class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolde
         fun bind(data: LaunchEntity) = with(binding) {
             Log.d(LaunchesFragment.TAG, "Bind-bind ")
             tvName.text = data.name
-            cpState.setText(when (data.state) {
-                LaunchEntity.State.UPCOMING -> R.string.launch_state_upcoming
-                LaunchEntity.State.SUCCESS -> R.string.launch_state_success
-                LaunchEntity.State.FAIL -> R.string.launch_state_fail
-            })
+            val stateTextColor: Pair<Int, Int> = when (data.state) {
+                LaunchEntity.State.UPCOMING -> Pair(R.string.launch_state_upcoming, R.color.grey_900)
+                LaunchEntity.State.SUCCESS -> Pair(R.string.launch_state_success, R.color.green_900)
+                LaunchEntity.State.FAIL -> Pair(R.string.launch_state_fail, R.color.red_900)
+            }
+            cpState.setText(stateTextColor.first)
+            cpState.setChipBackgroundColorResource(stateTextColor.second)
 
             tvDate.text = LaunchDateTimeFormatter(root.context, data.datePrecision)
                 .format(data.launchDateTime)
