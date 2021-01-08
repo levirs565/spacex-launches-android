@@ -2,9 +2,8 @@ package com.levirs.spacexlaunches.di
 
 import com.levirs.spacexlaunches.di.module.AppViewModelModule
 import com.levirs.spacexlaunches.di.scope.AppScope
-import com.levirs.spacexlaunches.ui.main.LaunchesFragment
+import com.levirs.spacexlaunches.ui.launches.LaunchesFragment
 import dagger.Component
-import javax.inject.Singleton
 
 @AppScope
 @Component(

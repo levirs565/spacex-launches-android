@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/fragmentLaunches"
-        android:name="com.levirs.spacexlaunches.ui.main.LaunchesFragment"
+        android:name="com.levirs.spacexlaunches.ui.launches.LaunchesFragment"
         android:label="LaunchesFragment" />
 </navigation>

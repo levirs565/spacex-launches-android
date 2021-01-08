@@ -1,6 +1,5 @@
-package com.levirs.spacexlaunches.ui.main
+package com.levirs.spacexlaunches.ui.launches
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -11,8 +10,6 @@ import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
-import org.threeten.bp.format.DateTimeFormatter
-import org.threeten.bp.format.DateTimeFormatterBuilder
 
 class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolder>(
     DIFF_CALLBACK

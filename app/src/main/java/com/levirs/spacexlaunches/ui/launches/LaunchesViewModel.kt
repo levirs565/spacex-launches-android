@@ -1,4 +1,4 @@
-package com.levirs.spacexlaunches.ui.main
+package com.levirs.spacexlaunches.ui.launches
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
