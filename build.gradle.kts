@@ -3,6 +3,7 @@
 buildscript {
     apply(from = "dependencies.gradle.kts")
     val kotlinPlugin: String by extra
+    val navigationSafeArg: String by extra
 
     repositories {
         google()
@@ -11,6 +12,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:4.1.1")
         classpath(kotlinPlugin)
+        classpath(navigationSafeArg)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
