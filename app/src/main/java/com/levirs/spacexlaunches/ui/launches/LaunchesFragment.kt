@@ -9,9 +9,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.paging.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.levirs.spacexlaunches.databinding.FragmentLaunchesBinding
+import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.getAppComponent
 import javax.inject.Inject
 
@@ -43,7 +45,7 @@ class LaunchesFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mAdapter = LaunchesAdapter()
+        mAdapter = LaunchesAdapter(mAdapterCallback)
         mBinding.rvLaunches.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = mAdapter
@@ -57,5 +59,14 @@ class LaunchesFragment: Fragment() {
                 })
             }
         })
+    }
+
+    private val mAdapterCallback = object : LaunchesAdapter.Callback {
+        override fun onItemClicked(item: LaunchEntity) {
+            findNavController().navigate(
+                LaunchesFragmentDirections
+                    .actionFragmentLaunchesToDetailActivity(item.id)
+            )
+        }
     }
 }

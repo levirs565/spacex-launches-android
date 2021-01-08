@@ -11,7 +11,9 @@ import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
 
-class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolder>(
+class LaunchesAdapter(
+    val callback: Callback
+): PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolder>(
     DIFF_CALLBACK
 ) {
     companion object {
@@ -39,7 +41,7 @@ class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolde
         ))
     }
 
-    class ViewHolder(val binding: ItemLaunchBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemLaunchBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: LaunchEntity) = with(binding) {
             tvName.text = data.name
             val stateTextColor: Pair<Int, Int> = when (data.state) {
@@ -58,7 +60,15 @@ class LaunchesAdapter: PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolde
                     error(R.drawable.img_placeholder_broken)
                 }
             else imgPatch.load(R.drawable.img_rocket_blank)
+
+            root.setOnClickListener {
+                callback.onItemClicked(data)
+            }
         }
+    }
+
+    interface Callback {
+        fun onItemClicked(item: LaunchEntity)
     }
 
 }
