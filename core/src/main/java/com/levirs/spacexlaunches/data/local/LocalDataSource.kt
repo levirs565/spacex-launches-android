@@ -34,6 +34,7 @@ class LocalDataSource @Inject constructor(
         return mLaunchDao.getLaunchesWithRocket(SimpleSQLiteQuery(queryString))
     }
     fun getFavoriteLaunches() = mLaunchDao.getFavoriteLaunches()
+    fun getLaunchById(id: String) = mLaunchDao.getLaunchById(id)
     suspend fun getAllLaunchesIds() = mLaunchDao.getAllLaunchesIds()
     suspend fun saveLaunch(launch: LocalLaunchEntity) = mLaunchDao.saveLaunches(launch)
     suspend fun updateLaunch(launch: LocalLaunchEntity) = mLaunchDao.updateLaunches(launch)

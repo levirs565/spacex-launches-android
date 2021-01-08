@@ -6,6 +6,7 @@ import androidx.sqlite.db.SupportSQLiteQuery
 import com.levirs.spacexlaunches.data.local.entity.LocalLaunchEntity
 import com.levirs.spacexlaunches.data.local.entity.LocalLaunchRocketEntity
 import com.levirs.spacexlaunches.data.remote.entity.RemoteLaunchEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LaunchDao {
@@ -17,6 +18,9 @@ interface LaunchDao {
     @Transaction
     @Query("SELECT * FROM launches")
     fun getFavoriteLaunches(): PagingSource<Int, LocalLaunchRocketEntity>
+    @Transaction
+    @Query("SELECT * FROM launches WHERE id = :id")
+    fun getLaunchById(id: String): Flow<LocalLaunchRocketEntity>
     @Update
     suspend fun updateLaunches(launch: LocalLaunchEntity)
     @Query("SELECT id from launches")
