@@ -88,6 +88,11 @@ class LaunchesDataSource @Inject constructor(
         }
     }
 
+    override fun getLaunchById(id: String): Flow<LaunchEntity>
+        = mLocalDataSource.getLaunchById(id).map {
+            it.toDomainLaunch()
+    }
+
     override suspend fun updateLaunch(launch: LaunchEntity) {
         mLocalDataSource.updateLaunch(LocalLaunchEntity.fromDomainLaunch(launch))
     }
