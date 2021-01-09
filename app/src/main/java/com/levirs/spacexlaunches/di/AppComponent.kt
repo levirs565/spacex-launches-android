@@ -2,6 +2,7 @@ package com.levirs.spacexlaunches.di
 
 import com.levirs.spacexlaunches.di.module.AppViewModelModule
 import com.levirs.spacexlaunches.di.scope.AppScope
+import com.levirs.spacexlaunches.ui.detail.DetailActivity
 import com.levirs.spacexlaunches.ui.launches.LaunchesFragment
 import dagger.Component
 
@@ -17,4 +18,5 @@ interface AppComponent {
     }
 
     fun injectLaunchesFragment(fragment: LaunchesFragment)
+    fun injectDetailActivity(activity: DetailActivity)
 }
