@@ -6,8 +6,10 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navArgs
+import coil.load
 import com.levirs.spacexlaunches.databinding.ActivityDetailBinding
 import com.levirs.spacexlaunches.getAppComponent
+import com.levirs.spacexlaunches.ui.utils.ViewUtils
 import javax.inject.Inject
 
 class DetailActivity : AppCompatActivity() {
@@ -36,6 +38,8 @@ class DetailActivity : AppCompatActivity() {
         mViewModel.launch.observe(this, {
             title = it.name
             updateCollapsingTitle()
+
+            mBinding.imgPatch.load(it.largePatch)
         })
     }
 
