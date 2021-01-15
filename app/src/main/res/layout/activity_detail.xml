@@ -25,33 +25,35 @@
 
             <ImageView
                 android:id="@+id/img_patch"
-                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
-                tools:src="@tools:sample/avatars"
-                android:scaleType="centerCrop" />
+                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                tools:src="@tools:sample/avatars" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/Theme.SpaceXLaunches.PopupOverlay" />
+                app:popupTheme="@style/Theme.SpaceXLaunches.PopupOverlay"
+                tools:title="Test"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_scrolling" />
+    <include layout="@layout/content_scrolling"
+        android:id="@+id/scroll"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
+        android:enabled="false"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        android:enabled="false"
         app:srcCompat="@drawable/ic_favorite_checked" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -10,6 +10,7 @@ import coil.load
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ActivityDetailBinding
 import com.levirs.spacexlaunches.getAppComponent
+import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
 import com.levirs.spacexlaunches.ui.utils.ViewUtils
 import javax.inject.Inject
 
@@ -39,6 +40,12 @@ class DetailActivity : AppCompatActivity() {
         mViewModel.launch.observe(this, {
             title = it.name
             updateCollapsingTitle()
+
+            with (mBinding.scroll) {
+                ViewUtils.updateLaunchStateChip(cpState, it.state)
+                tvDate.text = LaunchDateTimeFormatter(this@DetailActivity, it.datePrecision)
+                    .format(it.launchDateTime)
+            }
 
             mBinding.imgPatch.load(it.largePatch)
             mBinding.fab.setImageResource(if (it.isFavorite)

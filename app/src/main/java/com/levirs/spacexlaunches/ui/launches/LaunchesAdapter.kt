@@ -10,6 +10,7 @@ import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
+import com.levirs.spacexlaunches.ui.utils.ViewUtils
 
 class LaunchesAdapter(
     val callback: Callback
@@ -44,14 +45,7 @@ class LaunchesAdapter(
     inner class ViewHolder(val binding: ItemLaunchBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: LaunchEntity) = with(binding) {
             tvName.text = data.name
-            val stateTextColor: Pair<Int, Int> = when (data.state) {
-                LaunchEntity.State.UPCOMING -> Pair(R.string.launch_state_upcoming, R.color.grey_900)
-                LaunchEntity.State.SUCCESS -> Pair(R.string.launch_state_success, R.color.green_900)
-                LaunchEntity.State.FAIL -> Pair(R.string.launch_state_fail, R.color.red_900)
-            }
-            cpState.setText(stateTextColor.first)
-            cpState.setChipBackgroundColorResource(stateTextColor.second)
-
+            ViewUtils.updateLaunchStateChip(binding.cpState, data.state)
             tvDate.text = LaunchDateTimeFormatter(root.context, data.datePrecision)
                 .format(data.launchDateTime)
             if (data.smallPatch != null)
