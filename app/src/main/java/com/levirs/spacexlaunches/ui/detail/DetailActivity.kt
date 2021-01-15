@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navArgs
 import coil.load
+import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ActivityDetailBinding
 import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.utils.ViewUtils
@@ -29,9 +30,9 @@ class DetailActivity : AppCompatActivity() {
         setContentView(mBinding.root)
         setSupportActionBar(mBinding.toolbar)
         updateCollapsingTitle()
-        mBinding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+
+        mBinding.fab.setOnClickListener {
+            mViewModel.toggleFavorite()
         }
 
         mViewModel.setLaunchId(mNavArgs.launchId)
@@ -40,6 +41,10 @@ class DetailActivity : AppCompatActivity() {
             updateCollapsingTitle()
 
             mBinding.imgPatch.load(it.largePatch)
+            mBinding.fab.setImageResource(if (it.isFavorite)
+                R.drawable.ic_favorite_checked
+            else R.drawable.ic_favorite_unchecked)
+            mBinding.fab.isEnabled = true
         })
     }
 
