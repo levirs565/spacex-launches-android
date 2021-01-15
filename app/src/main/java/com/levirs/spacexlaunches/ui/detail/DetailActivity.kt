@@ -30,7 +30,12 @@ class DetailActivity : AppCompatActivity() {
         mBinding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         setSupportActionBar(mBinding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         updateCollapsingTitle()
+
+        mBinding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
 
         mBinding.fab.setOnClickListener {
             mViewModel.toggleFavorite()
