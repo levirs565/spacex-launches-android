@@ -47,9 +47,12 @@ class DetailActivity : AppCompatActivity() {
             updateCollapsingTitle()
 
             with (mBinding.scroll) {
+                tvFlightNumber.text = it.flightNumber.toString()
                 ViewUtils.updateLaunchStateChip(cpState, it.state)
                 tvDate.text = LaunchDateTimeFormatter(this@DetailActivity, it.datePrecision)
                     .format(it.launchDateTime)
+                tvRocket.text = it.rocket.name
+                tvDetail.text = it.details
             }
 
             mBinding.imgPatch.load(it.largePatch)
