@@ -10,7 +10,7 @@ import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
-import com.levirs.spacexlaunches.ui.utils.ViewUtils
+import com.levirs.spacexlaunches.ui.utils.UIUtils
 
 class LaunchesAdapter(
     val callback: Callback
@@ -45,7 +45,7 @@ class LaunchesAdapter(
     inner class ViewHolder(val binding: ItemLaunchBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: LaunchEntity) = with(binding) {
             tvName.text = data.name
-            ViewUtils.updateLaunchStateChip(binding.cpState, data.state)
+            UIUtils.updateLaunchStateChip(binding.cpState, data.state)
             tvDate.text = LaunchDateTimeFormatter(root.context, data.datePrecision)
                 .format(data.launchDateTime)
             if (data.smallPatch != null)

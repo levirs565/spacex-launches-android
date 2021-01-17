@@ -10,6 +10,7 @@ import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.util.ResultState
 import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.core.launches.AbstractLaunchesFragment
+import com.levirs.spacexlaunches.ui.utils.UIUtils
 import javax.inject.Inject
 
 class LaunchesFragment: AbstractLaunchesFragment() {
@@ -32,8 +33,7 @@ class LaunchesFragment: AbstractLaunchesFragment() {
 
     override fun onItemClick(item: LaunchEntity) {
         findNavController().navigate(
-            LaunchesFragmentDirections
-                .actionFragmentLaunchesToDetailActivity(item.id)
+                UIUtils.getLaunchDetailUri(requireContext(), item.id)
         )
     }
 }

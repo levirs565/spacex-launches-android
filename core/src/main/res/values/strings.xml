@@ -20,4 +20,6 @@
     <string name="launch_state_upcoming">Akan Datang</string>
     <string name="launch_state_success">Berhasil</string>
     <string name="launch_state_fail">Gagal</string>
+
+    <string name="deeplink_detail">com.levirs.spacexlaunches://launch/{launchId}/detail</string>
 </resources>

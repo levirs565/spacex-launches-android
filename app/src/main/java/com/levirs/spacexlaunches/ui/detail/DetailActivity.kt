@@ -13,7 +13,7 @@ import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
 import com.levirs.spacexlaunches.ui.utils.LinkChip
-import com.levirs.spacexlaunches.ui.utils.ViewUtils
+import com.levirs.spacexlaunches.ui.utils.UIUtils
 import javax.inject.Inject
 
 class DetailActivity : AppCompatActivity() {
@@ -59,7 +59,7 @@ class DetailActivity : AppCompatActivity() {
 
         with (mBinding.scroll) {
             tvFlightNumber.text = launch.flightNumber.toString()
-            ViewUtils.updateLaunchStateChip(cpState, launch.state)
+            UIUtils.updateLaunchStateChip(cpState, launch.state)
             tvDate.text = LaunchDateTimeFormatter(this@DetailActivity, launch.datePrecision)
                 .format(launch.launchDateTime)
             tvRocket.text = launch.rocket.name

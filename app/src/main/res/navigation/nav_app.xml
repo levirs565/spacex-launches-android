@@ -17,9 +17,12 @@
         android:id="@+id/detailActivity"
         android:name="com.levirs.spacexlaunches.ui.detail.DetailActivity"
         android:label="DetailActivity"
-        tools:layout="@layout/activity_detail" >
+        tools:layout="@layout/activity_detail">
         <argument
             android:name="launchId"
             app:argType="string" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="@string/deeplink_detail" />
     </activity>
 </navigation>
