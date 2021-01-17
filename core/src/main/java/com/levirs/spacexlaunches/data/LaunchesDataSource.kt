@@ -1,10 +1,7 @@
 package com.levirs.spacexlaunches.data
 
 import android.util.Log
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import androidx.paging.map
+import androidx.paging.*
 import com.levirs.spacexlaunches.data.local.LocalDataSource
 import com.levirs.spacexlaunches.data.local.entity.LocalLaunchEntity
 import com.levirs.spacexlaunches.data.remote.RemoteApi
@@ -12,6 +9,7 @@ import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.repository.LaunchesRepository
 import com.levirs.spacexlaunches.domain.util.LaunchSortBy
 import com.levirs.spacexlaunches.domain.util.ResultState
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import java.lang.Exception
@@ -52,6 +50,7 @@ class LaunchesDataSource @Inject constructor(
     }
 
     override fun getLaunches(
+        scope: CoroutineScope,
         filterByName: String,
         filterByState: LaunchEntity.State?,
         sortBy: LaunchSortBy
@@ -71,7 +70,7 @@ class LaunchesDataSource @Inject constructor(
                 filterByName, filterByState?.let {
                     LocalLaunchEntity.State.fromDomainLaunchState(it)
                                                  }, sortBy)
-        }.flow
+        }.flow.cachedIn(scope)
         emitAll(dbSource.map {
             ResultState.succes(it.map { item ->
                 item.toDomainLaunch()
@@ -79,10 +78,10 @@ class LaunchesDataSource @Inject constructor(
         })
     }.flowOn(Dispatchers.IO)
 
-    override fun getFavoriteLaunches(): Flow<PagingData<LaunchEntity>>
+    override fun getFavoriteLaunches(scope: CoroutineScope): Flow<PagingData<LaunchEntity>>
         = Pager(mPageConfig) {
             mLocalDataSource.getFavoriteLaunches()
-    }.flow.map {
+    }.flow.cachedIn(scope).map {
         it.map { localRocket ->
             localRocket.toDomainLaunch()
         }

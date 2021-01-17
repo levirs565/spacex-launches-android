@@ -12,7 +12,7 @@ class LaunchesViewModel @Inject constructor(
     private val launchesUseCase: LaunchesUseCase
 ): ViewModel() {
     val launches by lazy {
-        launchesUseCase.getLaunches("", null, LaunchSortBy.FLIGHT_NUMBER_ASC)
+        launchesUseCase.getLaunches(viewModelScope, "", null, LaunchSortBy.FLIGHT_NUMBER_ASC)
             .asLiveData(viewModelScope.coroutineContext)
     }
 }
