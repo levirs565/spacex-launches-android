@@ -1,4 +1,4 @@
-package com.levirs.spacexlaunches.ui.launches
+package com.levirs.spacexlaunches.ui.core.launches
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

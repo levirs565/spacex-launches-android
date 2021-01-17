@@ -1,7 +1,5 @@
 package com.levirs.spacexlaunches.ui.utils
 
-import android.widget.ImageView
-import coil.load
 import com.google.android.material.chip.Chip
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity

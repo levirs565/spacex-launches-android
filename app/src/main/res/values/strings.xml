@@ -2,9 +2,6 @@
     <string name="app_name">SpaceX Launches</string>
 
     <string name="launch_state">Status Peluncuran</string>
-    <string name="launch_state_upcoming">Akan Datang</string>
-    <string name="launch_state_success">Berhasil</string>
-    <string name="launch_state_fail">Gagal</string>
     <string name="launch_date">Tanggal Peluncuran</string>
     <string name="launch_number">Nomor Penerbangan</string>
     <string name="launch_rocket">Roket</string>

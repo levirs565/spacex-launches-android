@@ -34,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 val kotlin: String by rootProject.extra
@@ -51,6 +54,10 @@ val daggerCompiler: String by rootProject.extra
 val junit: String by rootProject.extra
 val extJunit: String by rootProject.extra
 val espressoCore: String by rootProject.extra
+val appCompat: String by rootProject.extra
+val constraintLayout: String by rootProject.extra
+val material: String by rootProject.extra
+val coil: String by rootProject.extra
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
@@ -66,6 +73,10 @@ dependencies {
     implementation(threetenbp)
     implementation(daggerRuntime)
     kapt(daggerCompiler)
+    implementation(appCompat)
+    implementation(constraintLayout)
+    implementation(material)
+    implementation(coil)
     testImplementation(junit)
     androidTestImplementation(extJunit)
     androidTestImplementation(espressoCore)
