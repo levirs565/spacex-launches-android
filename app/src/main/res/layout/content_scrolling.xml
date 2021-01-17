@@ -101,14 +101,13 @@
             tools:text="@tools:sample/first_names" />
 
         <TextView
+            style="@style/DetailSectionTitle"
             android:id="@+id/tv_label_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="@string/launch_detail"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_rocket" />
+            app:layout_constraintTop_toBottomOf="@+id/cg_links" />
 
         <TextView
             android:id="@+id/tv_detail"
@@ -119,5 +118,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_label_detail"
             tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:id="@+id/tv_links"
+            style="@style/DetailSectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/launch_links_see"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rocket" />
+
+        <com.google.android.material.chip.ChipGroup
+            style="@style/DetailSectionItem"
+            android:id="@+id/cg_links"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_links">
+
+        </com.google.android.material.chip.ChipGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -1,16 +1,20 @@
 package com.levirs.spacexlaunches.ui.detail
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navArgs
 import coil.load
+import com.google.android.material.chip.Chip
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ActivityDetailBinding
+import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
+import com.levirs.spacexlaunches.ui.utils.LinkChip
 import com.levirs.spacexlaunches.ui.utils.ViewUtils
 import javax.inject.Inject
 
@@ -53,6 +57,7 @@ class DetailActivity : AppCompatActivity() {
                     .format(it.launchDateTime)
                 tvRocket.text = it.rocket.name
                 tvDetail.text = it.details
+                bindLinks(it.links)
             }
 
             mBinding.imgPatch.load(it.largePatch)
@@ -65,5 +70,29 @@ class DetailActivity : AppCompatActivity() {
 
     private fun updateCollapsingTitle() {
         mBinding.toolbarLayout.title = title
+    }
+
+    private fun bindLinks(links: LaunchEntity.Links?) = with(mBinding.scroll) {
+        cgLinks.removeAllViews()
+        val linksVisibility: Int
+        if (links == null) {
+            linksVisibility = View.GONE
+        } else {
+            linksVisibility = View.VISIBLE
+            listOf(
+                Pair(R.string.links_webcast, links.webcast),
+                Pair(R.string.links_wikipedia, links.wikipedia),
+                Pair(R.string.links_article, links.article)
+            ).forEach {
+                if (it.second == null) return@forEach
+
+                val chip = LinkChip(this@DetailActivity)
+                chip.setText(it.first)
+                chip.setLink(it.second!!)
+                cgLinks.addView(chip)
+            }
+        }
+        tvLinks.visibility = linksVisibility
+        cgLinks.visibility = linksVisibility
     }
 }

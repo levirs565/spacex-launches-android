@@ -28,4 +28,14 @@
         <item name="android:paddingBottom">5dp</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
     </style>
+
+    <style name="DetailSectionTitle">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+    </style>
+
+    <style name="DetailSectionItem">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+    </style>
 </resources>

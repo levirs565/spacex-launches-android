@@ -9,4 +9,9 @@
     <string name="launch_number">Nomor Penerbangan</string>
     <string name="launch_rocket">Roket</string>
     <string name="launch_detail">Detail</string>
+    <string name="launch_links_see">Lihat</string>
+
+    <string name="links_webcast">Webcast</string>
+    <string name="links_wikipedia">Wikipedia</string>
+    <string name="links_article">Artikel</string>
 </resources>
