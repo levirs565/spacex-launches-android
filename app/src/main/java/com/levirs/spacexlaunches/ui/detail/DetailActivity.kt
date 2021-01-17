@@ -3,12 +3,10 @@ package com.levirs.spacexlaunches.ui.detail
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navArgs
 import coil.load
-import com.google.android.material.chip.Chip
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.ActivityDetailBinding
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
@@ -47,29 +45,33 @@ class DetailActivity : AppCompatActivity() {
 
         mViewModel.setLaunchId(mNavArgs.launchId)
         mViewModel.launch.observe(this, {
-            title = it.name
-            updateCollapsingTitle()
-
-            with (mBinding.scroll) {
-                tvFlightNumber.text = it.flightNumber.toString()
-                ViewUtils.updateLaunchStateChip(cpState, it.state)
-                tvDate.text = LaunchDateTimeFormatter(this@DetailActivity, it.datePrecision)
-                    .format(it.launchDateTime)
-                tvRocket.text = it.rocket.name
-                tvDetail.text = it.details
-                bindLinks(it.links)
-            }
-
-            mBinding.imgPatch.load(it.largePatch)
-            mBinding.fab.setImageResource(if (it.isFavorite)
-                R.drawable.ic_favorite_checked
-            else R.drawable.ic_favorite_unchecked)
-            mBinding.fab.isEnabled = true
+            bindLaunch(it)
         })
     }
 
     private fun updateCollapsingTitle() {
         mBinding.toolbarLayout.title = title
+    }
+
+    private fun bindLaunch(launch: LaunchEntity) {
+        title = launch.name
+        updateCollapsingTitle()
+
+        with (mBinding.scroll) {
+            tvFlightNumber.text = launch.flightNumber.toString()
+            ViewUtils.updateLaunchStateChip(cpState, launch.state)
+            tvDate.text = LaunchDateTimeFormatter(this@DetailActivity, launch.datePrecision)
+                .format(launch.launchDateTime)
+            tvRocket.text = launch.rocket.name
+            tvDetail.text = launch.details
+            bindLinks(launch.links)
+        }
+
+        mBinding.imgPatch.load(launch.largePatch)
+        mBinding.fab.setImageResource(if (launch.isFavorite)
+            R.drawable.ic_favorite_checked
+        else R.drawable.ic_favorite_unchecked)
+        mBinding.fab.isEnabled = true
     }
 
     private fun bindLinks(links: LaunchEntity.Links?) = with(mBinding.scroll) {
