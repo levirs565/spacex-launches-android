@@ -1,13 +1,18 @@
 package com.levirs.spacexlaunches.ui.favorite
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.levirs.spacexlaunches.domain.usecase.LaunchesUseCase
+import com.levirs.spacexlaunches.domain.util.ResultState
+import kotlinx.coroutines.flow.map
 
 class FavoriteViewModel(
     private val launchesUseCase: LaunchesUseCase
 ): ViewModel() {
     val favorite by lazy {
         launchesUseCase.getFavoriteLaunches(viewModelScope)
+            .map { ResultState.succes(it) }
+            .asLiveData(viewModelScope.coroutineContext)
     }
 }
