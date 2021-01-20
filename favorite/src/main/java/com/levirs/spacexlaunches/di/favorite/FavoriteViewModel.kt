@@ -1,4 +1,4 @@
-package com.levirs.spacexlaunches.di.ui_favorite
+package com.levirs.spacexlaunches.di.favorite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -10,7 +10,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 
 @Module
-abstract class UIFavoriteModule {
+abstract class FavoriteViewModel {
     @Binds
     @IntoMap
     @ViewModelKey(FavoriteViewModel::class)

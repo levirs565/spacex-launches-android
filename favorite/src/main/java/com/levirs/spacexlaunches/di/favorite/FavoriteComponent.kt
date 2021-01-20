@@ -1,4 +1,4 @@
-package com.levirs.spacexlaunches.di.ui_favorite
+package com.levirs.spacexlaunches.di.favorite
 
 import com.levirs.spacexlaunches.di.CoreComponent
 import com.levirs.spacexlaunches.di.scope.FeatureScope
@@ -7,12 +7,13 @@ import dagger.Component
 
 @FeatureScope
 @Component(
-    dependencies = [CoreComponent::class]
+    dependencies = [CoreComponent::class],
+    modules = [FavoriteViewModel::class]
 )
-abstract class UIFavoriteComponent {
+abstract class FavoriteComponent {
     @Component.Factory
     interface Factory {
-        fun build(coreComponent: CoreComponent): UIFavoriteComponent
+        fun build(coreComponent: CoreComponent): FavoriteComponent
     }
 
     abstract fun injectFragment(fragment: FavoriteFragment)

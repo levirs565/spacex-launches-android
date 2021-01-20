@@ -26,6 +26,13 @@ android {
             )
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 val kotlin: String by rootProject.extra
@@ -41,6 +48,7 @@ val extJunit: String by rootProject.extra
 val espressoCore: String by rootProject.extra
 
 dependencies {
+    implementation(project(":app"))
     implementation(project(":core"))
     implementation(kotlin)
     implementation(coreKtx)

@@ -38,7 +38,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    dynamicFeatures = mutableSetOf(":ui-favorite")
+    dynamicFeatures = mutableSetOf(":favorite")
 }
 
 val kotlin: String by rootProject.extra
