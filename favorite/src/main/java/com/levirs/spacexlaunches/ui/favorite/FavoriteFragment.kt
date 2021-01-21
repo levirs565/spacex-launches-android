@@ -37,4 +37,6 @@ class FavoriteFragment : AbstractLaunchesFragment() {
             UIUtils.getLaunchDetailUri(requireContext(), item.id)
         )
     }
+
+    override val emptyTextResource: Int = R.string.favorite_empty
 }

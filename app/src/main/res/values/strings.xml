@@ -16,4 +16,6 @@
     <string name="drawer_burger_open">Buka Panel</string>
     <string name="drawer_burger_close">Tutup Panel</string>
     <string name="title_ui_favorite">Favorite UI</string>
+
+    <string name="launches_empty">Maaf data tidak tersedia</string>
 </resources>

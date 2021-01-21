@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
+import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.util.ResultState
 import com.levirs.spacexlaunches.getAppComponent
@@ -31,6 +32,8 @@ class LaunchesFragment: AbstractLaunchesFragment() {
     override fun reload() {
         mViewModel.reload()
     }
+
+    override val emptyTextResource: Int = R.string.launches_empty
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

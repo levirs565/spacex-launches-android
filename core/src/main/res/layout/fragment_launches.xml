@@ -44,4 +44,14 @@
             android:text="@string/state_reload"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:visibility="gone" />
 </FrameLayout>
