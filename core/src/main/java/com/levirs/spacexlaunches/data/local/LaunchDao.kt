@@ -16,7 +16,7 @@ interface LaunchDao {
     @Insert
     suspend fun saveLaunches(launch: LocalLaunchEntity)
     @Transaction
-    @Query("SELECT * FROM launches")
+    @Query("SELECT * FROM launches WHERE is_favorite = 1")
     fun getFavoriteLaunches(): PagingSource<Int, LocalLaunchRocketEntity>
     @Transaction
     @Query("SELECT * FROM launches WHERE id = :id")
