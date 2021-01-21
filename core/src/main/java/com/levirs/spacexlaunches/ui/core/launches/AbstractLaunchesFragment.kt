@@ -13,7 +13,6 @@ import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.FragmentLaunchesBinding
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.util.ResultState
-import com.levirs.spacexlaunches.ui.core.launches.LaunchesAdapter
 
 abstract class AbstractLaunchesFragment: Fragment(R.layout.fragment_launches) {
     companion object {
@@ -35,6 +34,7 @@ abstract class AbstractLaunchesFragment: Fragment(R.layout.fragment_launches) {
             Log.d(TAG, it.toString())
             var showLoading: Boolean = false
             var showList: Boolean = false
+            var showError: Boolean = false
             if (it.isSuccess()) {
                 showList = true
                 mAdapter.submitData(viewLifecycleOwner.lifecycle, it.data!!.map { item ->
@@ -42,14 +42,25 @@ abstract class AbstractLaunchesFragment: Fragment(R.layout.fragment_launches) {
                 })
             } else if (it.isLoading()) {
                 showLoading = true
+            } else {
+                showError = true
+                mBinding.tvError.text = getString(R.string.state_error, it.error)
             }
             mBinding.pbLoading.isVisible = showLoading
             mBinding.rvLaunches.isVisible = showList
+            mBinding.llError.isVisible = showError
         })
+
+        mBinding.btnReload.setOnClickListener {
+            reload()
+        }
     }
 
     abstract fun getLaunchesPage(): LiveData<ResultState<PagingData<LaunchEntity>>>
     abstract fun onItemClick(item: LaunchEntity)
+    open fun reload() {
+        throw IllegalStateException("Unimplemented")
+    }
 
     private val mAdapterCallback = object : LaunchesAdapter.Callback {
         override fun onItemClicked(item: LaunchEntity) {

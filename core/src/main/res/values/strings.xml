@@ -22,4 +22,6 @@
     <string name="launch_state_fail">Gagal</string>
 
     <string name="deeplink_detail">com.levirs.spacexlaunches://launch/{launchId}/detail</string>
+    <string name="state_error">Tidak dapat memuat konten. Kesalahan terjadi: \n%s</string>
+    <string name="state_reload">Muat Ulang</string>
 </resources>
