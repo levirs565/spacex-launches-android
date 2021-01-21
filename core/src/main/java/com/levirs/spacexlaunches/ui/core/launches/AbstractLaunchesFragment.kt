@@ -3,6 +3,7 @@ package com.levirs.spacexlaunches.ui.core.launches
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
@@ -32,11 +33,18 @@ abstract class AbstractLaunchesFragment: Fragment(R.layout.fragment_launches) {
 
         getLaunchesPage().observe(viewLifecycleOwner, {
             Log.d(TAG, it.toString())
+            var showLoading: Boolean = false
+            var showList: Boolean = false
             if (it.isSuccess()) {
+                showList = true
                 mAdapter.submitData(viewLifecycleOwner.lifecycle, it.data!!.map { item ->
                     item
                 })
+            } else if (it.isLoading()) {
+                showLoading = true
             }
+            mBinding.pbLoading.isVisible = showLoading
+            mBinding.rvLaunches.isVisible = showList
         })
     }
 
