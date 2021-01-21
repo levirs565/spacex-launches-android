@@ -49,6 +49,7 @@ val daggerCompiler by extra( "com.google.dagger:dagger-compiler:${daggerVersion}
 val navigationFragment by extra( "androidx.navigation:navigation-fragment-ktx:${navigationVersion}")
 val navigationUi by extra( "androidx.navigation:navigation-ui-ktx:${navigationVersion}")
 val navigationSafeArg by extra("androidx.navigation:navigation-safe-args-gradle-plugin:${navigationVersion}")
+val navigationDynamicFeature by extra("androidx.navigation:navigation-dynamic-features-fragment:${navigationVersion}")
 
 val recyclerView by extra("androidx.recyclerview:recyclerview:$recyclerViewVersion")
 val viewModel by extra("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")

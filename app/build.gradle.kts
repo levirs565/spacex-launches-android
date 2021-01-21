@@ -49,6 +49,7 @@ val material: String by rootProject.extra
 val constraintLayout: String by rootProject.extra
 val navigationFragment: String by rootProject.extra
 val navigationUi: String by rootProject.extra
+val navigationDynamicFeature: String by rootProject.extra
 val junit: String by rootProject.extra
 val extJunit: String by rootProject.extra
 val espressoCore: String by rootProject.extra
@@ -70,6 +71,7 @@ dependencies {
     implementation(project(":core"))
     implementation(navigationFragment)
     implementation(navigationUi)
+    implementation(navigationDynamicFeature )
     implementation(recyclerView)
     implementation(paging)
     implementation(daggerRuntime)

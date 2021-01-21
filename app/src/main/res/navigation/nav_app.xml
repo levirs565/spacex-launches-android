@@ -25,4 +25,9 @@
             android:id="@+id/deepLink"
             app:uri="@string/deeplink_detail" />
     </activity>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.levirs.spacexlaunches.ui.favorite.FavoriteFragment"
+        app:moduleName="favorite"
+        android:label="FavoriteFragment" />
 </navigation>
