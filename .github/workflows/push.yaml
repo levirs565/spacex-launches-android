@@ -1,0 +1,12 @@
+name: Push
+on: [push]
+jobs:
+  ktlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: >
+          target=/usr/local/bin/ktlint; 
+          sudo wget -q -O $target https://github.com/pinterest/ktlint/releases/download/0.40.0/ktlint && 
+          sudo chmod a+x $target
+      - run: ktlint --android --disabled_rules=no-wildcard-imports "*/src/**/*.kt" "**/*.kts"
