@@ -3,13 +3,11 @@ package com.levirs.spacexlaunches.ui.core.launches
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.paging.LoadState
 import androidx.paging.PagingData
-import androidx.paging.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.databinding.FragmentLaunchesBinding
@@ -36,9 +34,9 @@ abstract class AbstractLaunchesFragment : Fragment(R.layout.fragment_launches) {
         }
 
         mAdapter.addLoadStateListener {
-            if (it.refresh is LoadState.NotLoading
-                && it.append.endOfPaginationReached
-                && mAdapter.itemCount <= 0
+            if (it.refresh is LoadState.NotLoading &&
+                it.append.endOfPaginationReached &&
+                mAdapter.itemCount <= 0
             ) {
                 mBinding.tvEmpty.setText(emptyTextResource)
                 mBinding.tvEmpty.isVisible = true
@@ -47,28 +45,31 @@ abstract class AbstractLaunchesFragment : Fragment(R.layout.fragment_launches) {
             }
         }
 
-        getLaunchesPage().observe(viewLifecycleOwner, {
-            Log.d(TAG, it.toString())
-            var showLoading = false
-            var showList = false
-            var showError = false
-            when {
-                it.isSuccess() -> {
-                    showList = true
-                    mAdapter.submitData(viewLifecycleOwner.lifecycle, it.data!!)
+        getLaunchesPage().observe(
+            viewLifecycleOwner,
+            {
+                Log.d(TAG, it.toString())
+                var showLoading = false
+                var showList = false
+                var showError = false
+                when {
+                    it.isSuccess() -> {
+                        showList = true
+                        mAdapter.submitData(viewLifecycleOwner.lifecycle, it.data!!)
+                    }
+                    it.isLoading() -> {
+                        showLoading = true
+                    }
+                    else -> {
+                        showError = true
+                        mBinding.tvError.text = getString(R.string.state_error, it.error)
+                    }
                 }
-                it.isLoading() -> {
-                    showLoading = true
-                }
-                else -> {
-                    showError = true
-                    mBinding.tvError.text = getString(R.string.state_error, it.error)
-                }
+                mBinding.pbLoading.isVisible = showLoading
+                mBinding.rvLaunches.isVisible = showList
+                mBinding.llError.isVisible = showError
             }
-            mBinding.pbLoading.isVisible = showLoading
-            mBinding.rvLaunches.isVisible = showList
-            mBinding.llError.isVisible = showError
-        })
+        )
 
         mBinding.btnReload.setOnClickListener {
             reload()

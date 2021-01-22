@@ -5,12 +5,12 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.levirs.spacexlaunches.domain.usecase.LaunchesUseCase
 import com.levirs.spacexlaunches.domain.util.ResultState
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
+import kotlinx.coroutines.flow.map
 
 class FavoriteViewModel @Inject constructor(
     private val launchesUseCase: LaunchesUseCase
-): ViewModel() {
+) : ViewModel() {
     val favorite by lazy {
         launchesUseCase.getFavoriteLaunches(viewModelScope)
             .map { ResultState.succes(it) }

@@ -14,7 +14,7 @@ import com.levirs.spacexlaunches.ui.utils.UIUtils
 
 class LaunchesAdapter(
     val callback: Callback
-): PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolder>(
+) : PagingDataAdapter<LaunchEntity, LaunchesAdapter.ViewHolder>(
     DIFF_CALLBACK
 ) {
     companion object {
@@ -26,7 +26,6 @@ class LaunchesAdapter(
             override fun areContentsTheSame(oldItem: LaunchEntity, newItem: LaunchEntity): Boolean {
                 return oldItem == newItem
             }
-
         }
     }
 
@@ -35,14 +34,16 @@ class LaunchesAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ItemLaunchBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        ))
+        return ViewHolder(
+            ItemLaunchBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
-    inner class ViewHolder(val binding: ItemLaunchBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemLaunchBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: LaunchEntity) = with(binding) {
             tvName.text = data.name
             UIUtils.updateLaunchStateChip(binding.cpState, data.state)
@@ -64,5 +65,4 @@ class LaunchesAdapter(
     interface Callback {
         fun onItemClicked(item: LaunchEntity)
     }
-
 }

@@ -71,7 +71,7 @@ dependencies {
     implementation(project(":core"))
     implementation(navigationFragment)
     implementation(navigationUi)
-    implementation(navigationDynamicFeature )
+    implementation(navigationDynamicFeature)
     implementation(recyclerView)
     implementation(paging)
     implementation(daggerRuntime)

@@ -9,8 +9,13 @@ import kotlinx.coroutines.flow.Flow
 
 interface LaunchesRepository {
 
-    fun getLaunches(scope: CoroutineScope, filterByName: String, filterByState: LaunchEntity.State?, sortBy: LaunchSortBy)
-        : Flow<ResultState<PagingData<LaunchEntity>>>
+    fun getLaunches(
+        scope: CoroutineScope,
+        filterByName: String,
+        filterByState: LaunchEntity.State?,
+        sortBy: LaunchSortBy
+    ):
+        Flow<ResultState<PagingData<LaunchEntity>>>
     fun getFavoriteLaunches(scope: CoroutineScope): Flow<PagingData<LaunchEntity>>
     fun getLaunchById(id: String): Flow<LaunchEntity>
     suspend fun updateLaunch(launch: LaunchEntity)

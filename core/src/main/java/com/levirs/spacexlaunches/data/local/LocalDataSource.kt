@@ -14,8 +14,11 @@ class LocalDataSource @Inject constructor(
     private val mLaunchDao: LaunchDao,
     private val mRocketDao: RocketDao
 ) {
-    fun getLaunchesWithRocket(filterByName: String?, filterByState: LocalLaunchEntity.State?,
-                              sortBy: LaunchSortBy): PagingSource<Int, LocalLaunchRocketEntity> {
+    fun getLaunchesWithRocket(
+        filterByName: String?,
+        filterByState: LocalLaunchEntity.State?,
+        sortBy: LaunchSortBy
+    ): PagingSource<Int, LocalLaunchRocketEntity> {
         val where = arrayListOf<String>()
         if (!filterByName.isNullOrEmpty())
             where.add("name LIKE %$filterByName%")

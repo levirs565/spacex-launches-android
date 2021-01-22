@@ -44,9 +44,12 @@ class DetailActivity : AppCompatActivity() {
         }
 
         mViewModel.setLaunchId(mNavArgs.launchId)
-        mViewModel.launch.observe(this, {
-            bindLaunch(it)
-        })
+        mViewModel.launch.observe(
+            this,
+            {
+                bindLaunch(it)
+            }
+        )
     }
 
     private fun updateCollapsingTitle() {
@@ -57,7 +60,7 @@ class DetailActivity : AppCompatActivity() {
         title = launch.name
         updateCollapsingTitle()
 
-        with (mBinding.scroll) {
+        with(mBinding.scroll) {
             tvFlightNumber.text = launch.flightNumber.toString()
             UIUtils.updateLaunchStateChip(cpState, launch.state)
             tvDate.text = LaunchDateTimeFormatter(this@DetailActivity, launch.datePrecision)
@@ -68,9 +71,11 @@ class DetailActivity : AppCompatActivity() {
         }
 
         mBinding.imgPatch.load(launch.largePatch)
-        mBinding.fab.setImageResource(if (launch.isFavorite)
-            R.drawable.ic_favorite_checked
-        else R.drawable.ic_favorite_unchecked)
+        mBinding.fab.setImageResource(
+            if (launch.isFavorite)
+                R.drawable.ic_favorite_checked
+            else R.drawable.ic_favorite_unchecked
+        )
         mBinding.fab.isEnabled = true
     }
 

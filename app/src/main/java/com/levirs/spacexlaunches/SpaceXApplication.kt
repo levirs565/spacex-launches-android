@@ -7,7 +7,7 @@ import com.levirs.spacexlaunches.di.CoreComponent
 import com.levirs.spacexlaunches.di.DaggerAppComponent
 import com.levirs.spacexlaunches.di.DaggerCoreComponent
 
-class SpaceXApplication: Application() {
+class SpaceXApplication : Application() {
     val coreComponent by lazy {
         DaggerCoreComponent.factory().build(applicationContext)
     }

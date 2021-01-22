@@ -56,7 +56,7 @@ data class LocalLaunchEntity(
 
         fun toDomainLaunchState() = LaunchEntity.State.valueOf(toString())
         companion object {
-            fun fromDomainLaunchState(state: LaunchEntity.State?) =  valueOf(state.toString())
+            fun fromDomainLaunchState(state: LaunchEntity.State?) = valueOf(state.toString())
         }
     }
 

@@ -3,11 +3,10 @@ package com.levirs.spacexlaunches.ui.utils
 import android.content.Context
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.domain.util.DateTimePrecision
+import kotlin.math.ceil
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.ZoneOffset
 import org.threeten.bp.ZonedDateTime
-import kotlin.math.ceil
-import kotlin.math.floor
 
 class LaunchDateTimeFormatter(
     val context: Context,
@@ -22,11 +21,15 @@ class LaunchDateTimeFormatter(
             text += context.resources
                 .getStringArray(R.array.date_months)[dateTime.monthValue - 1]
         if (precision.quarterPrecise)
-            text += context.getString(R.string.date_quarter,
-                ceil(dateTime.monthValue / 3.0).toInt())
+            text += context.getString(
+                R.string.date_quarter,
+                ceil(dateTime.monthValue / 3.0).toInt()
+            )
         if (precision.halfYearPrecise)
-            text += context.getString(R.string.date_semester,
-                ceil(dateTime.monthValue / 6.0).toInt())
+            text += context.getString(
+                R.string.date_semester,
+                ceil(dateTime.monthValue / 6.0).toInt()
+            )
         if (precision.yearPrecise)
             text += dateTime.year.toString()
         if (precision.hourPrecise)

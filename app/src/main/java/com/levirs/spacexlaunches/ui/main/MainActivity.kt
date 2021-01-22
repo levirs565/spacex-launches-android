@@ -1,9 +1,9 @@
 package com.levirs.spacexlaunches.ui.main
 
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.levirs.spacexlaunches.R
@@ -19,8 +19,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.content.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        mBurgerIcon = ActionBarDrawerToggle(this, binding.root, binding.content.toolbar,
-            R.string.drawer_burger_open, R.string.drawer_burger_close)
+        mBurgerIcon = ActionBarDrawerToggle(
+            this, binding.root, binding.content.toolbar,
+            R.string.drawer_burger_open, R.string.drawer_burger_close
+        )
         mBurgerIcon.isDrawerIndicatorEnabled = true
         mBurgerIcon.syncState()
         binding.root.addDrawerListener(mBurgerIcon)

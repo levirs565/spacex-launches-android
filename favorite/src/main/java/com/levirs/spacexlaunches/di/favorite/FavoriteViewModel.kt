@@ -18,5 +18,5 @@ abstract class FavoriteViewModel {
 
     @Binds
     abstract fun provideViewModelFactory(featureViewModelFactory: FeatureViewModelFactory):
-            ViewModelProvider.Factory
+        ViewModelProvider.Factory
 }

@@ -12,11 +12,11 @@ import com.levirs.spacexlaunches.domain.util.ResultState
 import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.core.launches.AbstractLaunchesFragment
 import com.levirs.spacexlaunches.ui.utils.UIUtils
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
-class LaunchesFragment: AbstractLaunchesFragment() {
+class LaunchesFragment : AbstractLaunchesFragment() {
     companion object {
         val TAG = LaunchesFragment::class.java.simpleName
     }
@@ -26,8 +26,8 @@ class LaunchesFragment: AbstractLaunchesFragment() {
         viewModelFactory
     }
 
-    override fun getLaunchesPage(): LiveData<ResultState<PagingData<LaunchEntity>>>
-        = mViewModel.launches
+    override fun getLaunchesPage(): LiveData<ResultState<PagingData<LaunchEntity>>> =
+        mViewModel.launches
 
     override fun reload() {
         mViewModel.reload()
@@ -42,7 +42,7 @@ class LaunchesFragment: AbstractLaunchesFragment() {
 
     override fun onItemClick(item: LaunchEntity) {
         findNavController().navigate(
-                UIUtils.getLaunchDetailUri(requireContext(), item.id)
+            UIUtils.getLaunchDetailUri(requireContext(), item.id)
         )
     }
 }

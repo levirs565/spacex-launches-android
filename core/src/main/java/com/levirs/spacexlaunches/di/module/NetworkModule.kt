@@ -1,6 +1,5 @@
 package com.levirs.spacexlaunches.di.module
 
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.levirs.spacexlaunches.data.remote.RemoteApi
 import com.levirs.spacexlaunches.data.utils.OffsetDateTimeGsonDeserializer
@@ -25,10 +24,11 @@ class NetworkModule {
     )
 
     @Provides
-    fun provideRemoteApi(okHttpClient: OkHttpClient, converter: GsonConverterFactory) = Retrofit.Builder()
-        .baseUrl("https://api.spacexdata.com/v4/")
-        .client(okHttpClient)
-        .addConverterFactory(converter)
-        .build()
-        .create(RemoteApi::class.java)
+    fun provideRemoteApi(okHttpClient: OkHttpClient, converter: GsonConverterFactory) =
+        Retrofit.Builder()
+            .baseUrl("https://api.spacexdata.com/v4/")
+            .client(okHttpClient)
+            .addConverterFactory(converter)
+            .build()
+            .create(RemoteApi::class.java)
 }

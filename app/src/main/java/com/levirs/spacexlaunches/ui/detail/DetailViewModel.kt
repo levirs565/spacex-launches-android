@@ -6,12 +6,12 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.usecase.LaunchesUseCase
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 class DetailViewModel @Inject constructor(
     private val launchesUseCase: LaunchesUseCase
-): ViewModel() {
+) : ViewModel() {
     private lateinit var mLaunchId: String
     lateinit var launch: LiveData<LaunchEntity>
 
@@ -20,7 +20,8 @@ class DetailViewModel @Inject constructor(
             return
 
         mLaunchId = launchId
-        launch = launchesUseCase.getLaunchById(mLaunchId).asLiveData(viewModelScope.coroutineContext)
+        launch = launchesUseCase.getLaunchById(mLaunchId)
+            .asLiveData(viewModelScope.coroutineContext)
     }
 
     fun toggleFavorite() = viewModelScope.launch {

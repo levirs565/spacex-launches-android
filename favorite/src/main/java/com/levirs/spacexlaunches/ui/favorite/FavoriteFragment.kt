@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
-import com.levirs.spacexlaunches.SpaceXApplication
 import com.levirs.spacexlaunches.di.favorite.DaggerFavoriteComponent
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.util.ResultState
@@ -29,8 +28,8 @@ class FavoriteFragment : AbstractLaunchesFragment() {
             .injectFragment(this)
     }
 
-    override fun getLaunchesPage(): LiveData<ResultState<PagingData<LaunchEntity>>>
-        = mViewModel.favorite
+    override fun getLaunchesPage(): LiveData<ResultState<PagingData<LaunchEntity>>> =
+        mViewModel.favorite
 
     override fun onItemClick(item: LaunchEntity) {
         findNavController().navigate(

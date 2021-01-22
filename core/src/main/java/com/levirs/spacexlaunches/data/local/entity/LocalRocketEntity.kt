@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.levirs.spacexlaunches.domain.entity.RocketEntity
 
-
 @Entity(tableName = "rockets")
 data class LocalRocketEntity(
     @PrimaryKey
