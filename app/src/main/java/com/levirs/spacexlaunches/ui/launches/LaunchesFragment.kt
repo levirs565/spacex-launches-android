@@ -1,5 +1,7 @@
 package com.levirs.spacexlaunches.ui.launches
 
+import android.app.SearchManager
+import android.app.Service
 import android.content.Context
 import android.view.Menu
 import android.view.MenuInflater
@@ -18,8 +20,10 @@ import com.levirs.spacexlaunches.ui.core.launches.AbstractLaunchesFragment
 import com.levirs.spacexlaunches.ui.utils.UIUtils
 import com.levirs.spacexlaunches.ui.utils.getKey
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import javax.inject.Inject
 
+@FlowPreview
 @ExperimentalCoroutinesApi
 class LaunchesFragment : AbstractLaunchesFragment() {
     companion object {
@@ -65,6 +69,21 @@ class LaunchesFragment : AbstractLaunchesFragment() {
         )
     }
 
+    private val mQueryTextListener =
+        object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText == null) return false
+
+                mViewModel.setFilterByName(newText)
+                return true
+            }
+
+        }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_launches, menu)
@@ -74,6 +93,15 @@ class LaunchesFragment : AbstractLaunchesFragment() {
         mViewModel.filterByState.observe(viewLifecycleOwner, {
             menu.findItem(mMenuFilterMap.getValue(it)).isChecked = true
         })
+
+        val searchView =
+            menu.findItem(R.id.search_name).actionView as androidx.appcompat.widget.SearchView
+        searchView.setIconifiedByDefault(true)
+        searchView.setOnQueryTextListener(mQueryTextListener)
+
+        val searchManager =
+            requireContext().getSystemService(Service.SEARCH_SERVICE) as SearchManager
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
