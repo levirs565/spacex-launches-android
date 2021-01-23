@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/fragmentLaunches"
         android:name="com.levirs.spacexlaunches.ui.launches.LaunchesFragment"
-        android:label="LaunchesFragment" >
+        android:label="@string/drawer_launches">
         <action
             android:id="@+id/action_fragmentLaunches_to_detailActivity"
             app:destination="@id/detailActivity" />
@@ -29,5 +29,5 @@
         android:id="@+id/favoriteFragment"
         android:name="com.levirs.spacexlaunches.ui.favorite.FavoriteFragment"
         app:moduleName="favorite"
-        android:label="FavoriteFragment" />
+        android:label="@string/drawer_favorite" />
 </navigation>
