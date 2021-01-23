@@ -18,4 +18,15 @@
     <string name="title_ui_favorite">Favorite UI</string>
 
     <string name="launches_empty">Maaf data tidak tersedia</string>
+    <string name="action_sort_by">Sortir Berdasarkan</string>
+    <string name="action_search">Cari</string>
+    <string name="action_sort_by_flight_number_asc">Nomor Penerbangan Menaik</string>
+    <string name="action_sort_by_flight_number_desc">Nomor Penerbangan Menurun</string>
+    <string name="action_sort_by_name_asc">Nama Menaik</string>
+    <string name="action_sort_by_name_desc">Nama Menurun</string>
+    <string name="action_filter_state">Saring Berdasarkan Status</string>
+    <string name="action_filter_state_none">Tidak Ada</string>
+    <string name="action_filter_state_success">Berhasil</string>
+    <string name="action_filter_state_fail">Gagal</string>
+    <string name="action_filter_state_upcoming">Akan Datang</string>
 </resources>

@@ -5,11 +5,11 @@
     <item
         android:id="@+id/search_name"
         android:icon="@drawable/ic_search_white_24dp"
-        android:title="Cari"
+        android:title="@string/action_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always|collapseActionView" />
 
-    <item android:title="Sortir Berdasarkan">
+    <item android:title="@string/action_sort_by">
         <menu>
             <group
                 android:id="@+id/sort_by"
@@ -17,42 +17,42 @@
 
                 <item
                     android:id="@+id/sort_by_flight_number_asc"
-                    android:title="Nomor Penerbangan Menaik" />
+                    android:title="@string/action_sort_by_flight_number_asc" />
 
                 <item
                     android:id="@+id/sort_by_flight_number_desc"
-                    android:title="Nomor Penerbangan Menurun" />
+                    android:title="@string/action_sort_by_flight_number_desc" />
 
                 <item
                     android:id="@+id/sort_by_name_asc"
-                    android:title="Nama Menaik" />
+                    android:title="@string/action_sort_by_name_asc" />
 
                 <item
                     android:id="@+id/sort_by_name_desc"
-                    android:title="Nama Menurun" />
+                    android:title="@string/action_sort_by_name_desc" />
             </group>
         </menu>
     </item>
-    <item android:title="Saring Berdasarkan Status">
+    <item android:title="@string/action_filter_state">
         <menu>
             <group
                 android:id="@+id/filter_state"
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/filter_state_none"
-                    android:title="Tidak Ada" />
+                    android:title="@string/action_filter_state_none" />
 
                 <item
                     android:id="@+id/filter_state_success"
-                    android:title="Berhasil" />
+                    android:title="@string/action_filter_state_success" />
 
                 <item
                     android:id="@+id/filter_state_fail"
-                    android:title="Gagal" />
+                    android:title="@string/action_filter_state_fail" />
 
                 <item
                     android:id="@+id/filter_state_upcoming"
-                    android:title="Akan Datang" />
+                    android:title="@string/action_filter_state_upcoming" />
             </group>
         </menu>
     </item>
