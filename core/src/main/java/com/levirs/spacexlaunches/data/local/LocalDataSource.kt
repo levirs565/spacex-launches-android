@@ -23,10 +23,11 @@ class LocalDataSource @Inject constructor(
         if (!filterByName.isNullOrEmpty())
             where.add("name LIKE %$filterByName%")
         if (filterByState != null)
-            where.add("state == ${filterByState.name}")
+            where.add("state == \"${filterByState.name}\"")
 
         var queryString = "SELECT * FROM launches"
-        if (where.isNotEmpty()) queryString += where.joinToString(", ", prefix = " ")
+        if (where.isNotEmpty())
+            queryString += " WHERE " + where.joinToString(", ")
         queryString += " ORDER BY " + when (sortBy) {
             LaunchSortBy.FLIGHT_NUMBER_ASC -> "flight_number"
             LaunchSortBy.FLIGHT_NUMBER_DESC -> "flight_number DESC"
