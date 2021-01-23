@@ -21,13 +21,13 @@ class LocalDataSource @Inject constructor(
     ): PagingSource<Int, LocalLaunchRocketEntity> {
         val where = arrayListOf<String>()
         if (!filterByName.isNullOrEmpty())
-            where.add("name LIKE %$filterByName%")
+            where.add("name LIKE \"%$filterByName%\"")
         if (filterByState != null)
             where.add("state == \"${filterByState.name}\"")
 
         var queryString = "SELECT * FROM launches"
         if (where.isNotEmpty())
-            queryString += " WHERE " + where.joinToString(", ")
+            queryString += " WHERE " + where.joinToString(" AND ")
         queryString += " ORDER BY " + when (sortBy) {
             LaunchSortBy.FLIGHT_NUMBER_ASC -> "flight_number"
             LaunchSortBy.FLIGHT_NUMBER_DESC -> "flight_number DESC"
