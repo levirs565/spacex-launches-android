@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Sortir Berdasarkan">
+        <menu>
+            <group
+                android:id="@+id/sort_by"
+                android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/sort_by_flight_number_asc"
+                    android:title="Nomor Penerbangan Menaik" />
+
+                <item
+                    android:id="@+id/sort_by_flight_number_desc"
+                    android:title="Nomor Penerbangan Menurun" />
+
+                <item
+                    android:id="@+id/sort_by_name_asc"
+                    android:title="Nama Menaik" />
+
+                <item
+                    android:id="@+id/sort_by_name_desc"
+                    android:title="Nama Menurun" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Saring Berdasarkan Status">
+        <menu>
+            <group
+                android:id="@+id/filter_state"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/filter_state_none"
+                    android:title="Tidak Ada" />
+
+                <item
+                    android:id="@+id/filter_state_success"
+                    android:title="Berhasil" />
+
+                <item
+                    android:id="@+id/filter_state_fail"
+                    android:title="Gagal" />
+
+                <item
+                    android:id="@+id/filter_state_upcoming"
+                    android:title="Akan Datang" />
+            </group>
+        </menu>
+    </item>
+</menu>
