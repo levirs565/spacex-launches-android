@@ -20,9 +20,9 @@ import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.core.launches.AbstractLaunchesFragment
 import com.levirs.spacexlaunches.ui.utils.UIUtils
 import com.levirs.spacexlaunches.ui.utils.getKey
-import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -100,9 +100,17 @@ class LaunchesFragment : AbstractLaunchesFragment() {
             }
         )
 
-        val searchView = menu.findItem(R.id.search_name).actionView as SearchView
+        val searchItem = menu.findItem(R.id.search_name)
+        val searchView = searchItem.actionView as SearchView
         searchView.setIconifiedByDefault(true)
         searchView.setOnQueryTextListener(mQueryTextListener)
+
+        mViewModel.getLastNameFilter().also {
+            if (it.isEmpty()) return@also
+
+            searchItem.expandActionView()
+            searchView.setQuery(it, false)
+        }
 
         val searchManager =
             requireContext().getSystemService(Service.SEARCH_SERVICE) as SearchManager
