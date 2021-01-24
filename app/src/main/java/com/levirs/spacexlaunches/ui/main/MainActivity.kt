@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.fragmentLaunches, R.id.favoriteFragment
-            ), binding.root
+            ),
+            binding.root
         )
         binding.navView.setupWithNavController(navController)
         binding.content.toolbar.setupWithNavController(navController, appBarConfiguration)
 
         title = navController.currentDestination?.label
     }
-
 }

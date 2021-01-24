@@ -6,12 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.usecase.LaunchesUseCase
 import com.levirs.spacexlaunches.domain.util.LaunchSortBy
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi

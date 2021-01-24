@@ -6,6 +6,7 @@ import android.content.Context
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
@@ -19,9 +20,9 @@ import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.core.launches.AbstractLaunchesFragment
 import com.levirs.spacexlaunches.ui.utils.UIUtils
 import com.levirs.spacexlaunches.ui.utils.getKey
+import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -81,27 +82,33 @@ class LaunchesFragment : AbstractLaunchesFragment() {
                 mViewModel.setFilterByName(newText)
                 return true
             }
-
         }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_launches, menu)
-        mViewModel.sortBy.observe(viewLifecycleOwner, {
-            menu.findItem(mMenuSortByMap.getValue(it)).isChecked = true
-        })
-        mViewModel.filterByState.observe(viewLifecycleOwner, {
-            menu.findItem(mMenuFilterMap.getValue(it)).isChecked = true
-        })
+        mViewModel.sortBy.observe(
+            viewLifecycleOwner,
+            {
+                menu.findItem(mMenuSortByMap.getValue(it)).isChecked = true
+            }
+        )
+        mViewModel.filterByState.observe(
+            viewLifecycleOwner,
+            {
+                menu.findItem(mMenuFilterMap.getValue(it)).isChecked = true
+            }
+        )
 
-        val searchView =
-            menu.findItem(R.id.search_name).actionView as androidx.appcompat.widget.SearchView
+        val searchView = menu.findItem(R.id.search_name).actionView as SearchView
         searchView.setIconifiedByDefault(true)
         searchView.setOnQueryTextListener(mQueryTextListener)
 
         val searchManager =
             requireContext().getSystemService(Service.SEARCH_SERVICE) as SearchManager
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
+        searchView.setSearchableInfo(
+            searchManager.getSearchableInfo(requireActivity().componentName)
+        )
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
