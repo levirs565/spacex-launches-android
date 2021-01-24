@@ -104,6 +104,7 @@ class LaunchesFragment : AbstractLaunchesFragment() {
         val searchView = searchItem.actionView as SearchView
         searchView.setIconifiedByDefault(true)
         searchView.setOnQueryTextListener(mQueryTextListener)
+        searchView.maxWidth = Int.MAX_VALUE
 
         mViewModel.getLastNameFilter().also {
             if (it.isEmpty()) return@also
