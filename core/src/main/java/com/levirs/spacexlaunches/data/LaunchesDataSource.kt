@@ -8,12 +8,11 @@ import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.domain.repository.LaunchesRepository
 import com.levirs.spacexlaunches.domain.util.LaunchSortBy
 import com.levirs.spacexlaunches.domain.util.ResultState
-import java.lang.Exception
-import javax.inject.Inject
-import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
+import javax.inject.Inject
+import javax.inject.Singleton
 
 @Singleton
 class LaunchesDataSource @Inject constructor(
@@ -54,14 +53,16 @@ class LaunchesDataSource @Inject constructor(
         filterByState: LaunchEntity.State?,
         sortBy: LaunchSortBy
     ): Flow<ResultState<PagingData<LaunchEntity>>> = flow {
-        emit(ResultState.loading<PagingData<LaunchEntity>>())
-        try {
-            checkRocket()
-            checkLaunches()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            emit(ResultState.error<PagingData<LaunchEntity>>(e.toString()))
-            return@flow
+        if (!mRocketsChecked || !mLaunchesChecked) {
+            try {
+                emit(ResultState.loading<PagingData<LaunchEntity>>())
+                checkRocket()
+                checkLaunches()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                emit(ResultState.error<PagingData<LaunchEntity>>(e.toString()))
+                return@flow
+            }
         }
 
         val dbSource = Pager(mPageConfig) {
