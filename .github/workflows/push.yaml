@@ -32,8 +32,8 @@ jobs:
         run: chmod a+x ./gradlew
       - name: Download dependencies
         run: ./gradlew androidDependencies
-      - name: Run build
-        run: ./gradlew build
+      - name: Run build, lint and test
+        run: ./gradlew build lint test
       - uses: actions/upload-artifact@v2
         with:
           name: apk-outputs
