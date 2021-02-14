@@ -1,0 +1,13 @@
+version: '3'
+
+vars:
+  KTLINT_ARG: --android --disabled_rules=no-wildcard-imports "*/src/**/*.kt" "**/*.kts"
+
+tasks:
+  ktlint:
+    cmds:
+      - ktlint {{.KTLINT_ARG}}
+
+  ktlintFix:
+    cmds:
+      - ktlint -F {{.KTLINT_ARG}}
