@@ -11,6 +11,8 @@ jobs:
           sudo chmod a+x $target
       - name: Install Task
         uses: Arduino/actions/setup-taskfile@master
+        with:
+          version: '3.x'
       - run: task ktlint
   build:
     runs-on: ubuntu-latest
