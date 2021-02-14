@@ -3,8 +3,8 @@ package com.levirs.spacexlaunches.core.data.remote.entity
 import com.google.gson.annotations.SerializedName
 import com.levirs.spacexlaunches.core.data.local.entity.LocalLaunchEntity
 import com.levirs.spacexlaunches.core.domain.util.DateTimePrecision
-import org.threeten.bp.OffsetDateTime
 import java.util.*
+import org.threeten.bp.OffsetDateTime
 
 data class RemoteLaunchEntity(
     val id: String,

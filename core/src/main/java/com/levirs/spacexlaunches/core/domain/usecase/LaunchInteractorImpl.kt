@@ -5,10 +5,10 @@ import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.core.domain.repository.LaunchesRepository
 import com.levirs.spacexlaunches.core.domain.util.LaunchSortBy
 import com.levirs.spacexlaunches.core.domain.util.ResultState
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 
 @Singleton
 class LaunchInteractorImpl @Inject constructor(
