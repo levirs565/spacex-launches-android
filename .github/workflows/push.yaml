@@ -22,12 +22,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ~/.android/build-cache 
-            ~/.android/cache
-          key: android-build-${{ github.sha }}-${{ github.run_number }}
+            ~/.gradle/caches/modules-*
+            ~/.gradle/caches/jars-*
+            ~/.gradle/caches/build-cache-*
+          key: gradle-${{ github.sha }}
           restore-keys: |
-            android-build-${{ github.sha }}-
-            android-build-
+            gradle-
       - name: Chmod gradlew
         run: chmod a+x ./gradlew
       - name: Download dependencies
