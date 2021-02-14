@@ -58,6 +58,8 @@ val appCompat: String by rootProject.extra
 val constraintLayout: String by rootProject.extra
 val material: String by rootProject.extra
 val coil: String by rootProject.extra
+val sqlCipher: String by rootProject.extra
+val sqlKtx: String by rootProject.extra
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
@@ -77,6 +79,8 @@ dependencies {
     api(constraintLayout)
     api(material)
     api(coil)
+    implementation(sqlCipher)
+    implementation(sqlKtx)
     testImplementation(junit)
     androidTestImplementation(extJunit)
     androidTestImplementation(espressoCore)
