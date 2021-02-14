@@ -34,3 +34,7 @@ jobs:
         run: ./gradlew androidDependencies
       - name: Run build
         run: ./gradlew build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: reports
+          path: '*/build/reports'
