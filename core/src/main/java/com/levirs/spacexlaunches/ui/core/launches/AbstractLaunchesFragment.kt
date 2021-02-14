@@ -10,9 +10,9 @@ import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.levirs.spacexlaunches.R
+import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
+import com.levirs.spacexlaunches.core.domain.util.ResultState
 import com.levirs.spacexlaunches.databinding.FragmentLaunchesBinding
-import com.levirs.spacexlaunches.domain.entity.LaunchEntity
-import com.levirs.spacexlaunches.domain.util.ResultState
 
 abstract class AbstractLaunchesFragment : Fragment(R.layout.fragment_launches) {
     companion object {

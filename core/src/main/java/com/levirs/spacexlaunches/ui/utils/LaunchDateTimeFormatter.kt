@@ -2,11 +2,11 @@ package com.levirs.spacexlaunches.ui.utils
 
 import android.content.Context
 import com.levirs.spacexlaunches.R
-import com.levirs.spacexlaunches.domain.util.DateTimePrecision
-import kotlin.math.ceil
+import com.levirs.spacexlaunches.core.domain.util.DateTimePrecision
 import org.threeten.bp.OffsetDateTime
 import org.threeten.bp.ZoneOffset
 import org.threeten.bp.ZonedDateTime
+import kotlin.math.ceil
 
 class LaunchDateTimeFormatter(
     val context: Context,

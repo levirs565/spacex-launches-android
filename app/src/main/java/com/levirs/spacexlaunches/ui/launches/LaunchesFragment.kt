@@ -13,16 +13,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import com.levirs.spacexlaunches.R
-import com.levirs.spacexlaunches.domain.entity.LaunchEntity
-import com.levirs.spacexlaunches.domain.util.LaunchSortBy
-import com.levirs.spacexlaunches.domain.util.ResultState
+import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
+import com.levirs.spacexlaunches.core.domain.util.LaunchSortBy
+import com.levirs.spacexlaunches.core.domain.util.ResultState
 import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.core.launches.AbstractLaunchesFragment
 import com.levirs.spacexlaunches.ui.utils.UIUtils
 import com.levirs.spacexlaunches.ui.utils.getKey
-import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi

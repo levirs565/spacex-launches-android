@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.levirs.spacexlaunches.domain.entity.LaunchEntity
-import com.levirs.spacexlaunches.domain.usecase.LaunchesUseCase
-import javax.inject.Inject
+import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
+import com.levirs.spacexlaunches.core.domain.usecase.LaunchesUseCase
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class DetailViewModel @Inject constructor(
     private val launchesUseCase: LaunchesUseCase

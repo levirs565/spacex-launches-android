@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
+import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
+import com.levirs.spacexlaunches.core.domain.util.ResultState
 import com.levirs.spacexlaunches.di.favorite.DaggerFavoriteComponent
-import com.levirs.spacexlaunches.domain.entity.LaunchEntity
-import com.levirs.spacexlaunches.domain.util.ResultState
 import com.levirs.spacexlaunches.getCoreComponent
 import com.levirs.spacexlaunches.ui.core.launches.AbstractLaunchesFragment
 import com.levirs.spacexlaunches.ui.utils.UIUtils

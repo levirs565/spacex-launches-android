@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.levirs.spacexlaunches.R
+import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
-import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
 import com.levirs.spacexlaunches.ui.utils.UIUtils
 

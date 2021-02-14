@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.Uri
 import com.google.android.material.chip.Chip
 import com.levirs.spacexlaunches.R
-import com.levirs.spacexlaunches.domain.entity.LaunchEntity
+import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 
 object UIUtils {
     fun updateLaunchStateChip(chip: Chip, state: LaunchEntity.State) {

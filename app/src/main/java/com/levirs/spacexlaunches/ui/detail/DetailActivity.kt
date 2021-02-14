@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navArgs
 import coil.load
 import com.levirs.spacexlaunches.R
+import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.databinding.ActivityDetailBinding
-import com.levirs.spacexlaunches.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
 import com.levirs.spacexlaunches.ui.utils.LinkChip
