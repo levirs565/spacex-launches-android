@@ -18,6 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Cache gradle dist
+        uses: actions/cache@v2
+        with:
+          key: dists-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+          path: ~/.gradle/wrapper/dists
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
