@@ -2,9 +2,9 @@ package com.levirs.spacexlaunches.di.favorite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.levirs.spacexlaunches.di.map.ViewModelKey
+import com.levirs.spacexlaunches.feature.FeatureViewModelFactory
+import com.levirs.spacexlaunches.feature.ViewModelKey
 import com.levirs.spacexlaunches.ui.favorite.FavoriteViewModel
-import com.levirs.spacexlaunches.ui.utils.FeatureViewModelFactory
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

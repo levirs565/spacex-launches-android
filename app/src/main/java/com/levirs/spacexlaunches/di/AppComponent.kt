@@ -2,7 +2,7 @@ package com.levirs.spacexlaunches.di
 
 import com.levirs.spacexlaunches.core.CoreComponent
 import com.levirs.spacexlaunches.di.module.AppViewModelModule
-import com.levirs.spacexlaunches.di.scope.FeatureScope
+import com.levirs.spacexlaunches.feature.FeatureScope
 import com.levirs.spacexlaunches.ui.detail.DetailActivity
 import com.levirs.spacexlaunches.ui.launches.LaunchesFragment
 import dagger.Component

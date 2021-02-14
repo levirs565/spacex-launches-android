@@ -3,9 +3,9 @@ package com.levirs.spacexlaunches
 import android.app.Application
 import android.content.Context
 import com.levirs.spacexlaunches.core.CoreComponent
+import com.levirs.spacexlaunches.core.DaggerCoreComponent
 import com.levirs.spacexlaunches.di.AppComponent
 import com.levirs.spacexlaunches.di.DaggerAppComponent
-import com.levirs.spacexlaunches.di.DaggerCoreComponent
 
 class SpaceXApplication : Application() {
     val coreComponent by lazy {

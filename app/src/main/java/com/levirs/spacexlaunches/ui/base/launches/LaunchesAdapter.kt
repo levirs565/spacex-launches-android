@@ -1,4 +1,4 @@
-package com.levirs.spacexlaunches.ui.core.launches
+package com.levirs.spacexlaunches.ui.base.launches
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,6 @@ import coil.load
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
-import com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter
 import com.levirs.spacexlaunches.ui.utils.UIUtils
 
 class LaunchesAdapter(
@@ -47,7 +46,10 @@ class LaunchesAdapter(
         fun bind(data: LaunchEntity) = with(binding) {
             tvName.text = data.name
             UIUtils.updateLaunchStateChip(binding.cpState, data.state)
-            tvDate.text = LaunchDateTimeFormatter(root.context, data.datePrecision)
+            tvDate.text = com.levirs.spacexlaunches.ui.utils.LaunchDateTimeFormatter(
+                root.context,
+                data.datePrecision
+            )
                 .format(data.launchDateTime)
             if (data.smallPatch != null)
                 imgPatch.load(data.smallPatch) {

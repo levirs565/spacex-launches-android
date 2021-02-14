@@ -1,4 +1,4 @@
-package com.levirs.spacexlaunches.ui.core.launches
+package com.levirs.spacexlaunches.ui.base.launches
 
 import android.os.Bundle
 import android.util.Log

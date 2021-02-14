@@ -1,4 +1,4 @@
-package com.levirs.spacexlaunches.di.scope
+package com.levirs.spacexlaunches.feature
 
 import javax.inject.Scope
 

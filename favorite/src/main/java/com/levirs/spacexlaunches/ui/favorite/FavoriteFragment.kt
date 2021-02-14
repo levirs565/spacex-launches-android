@@ -10,7 +10,7 @@ import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.core.domain.util.ResultState
 import com.levirs.spacexlaunches.di.favorite.DaggerFavoriteComponent
 import com.levirs.spacexlaunches.getCoreComponent
-import com.levirs.spacexlaunches.ui.core.launches.AbstractLaunchesFragment
+import com.levirs.spacexlaunches.ui.base.launches.AbstractLaunchesFragment
 import com.levirs.spacexlaunches.ui.utils.UIUtils
 import javax.inject.Inject
 

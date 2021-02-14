@@ -1,4 +1,4 @@
-package com.levirs.spacexlaunches.di.map
+package com.levirs.spacexlaunches.feature
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

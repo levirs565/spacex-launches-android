@@ -1,8 +1,7 @@
-package com.levirs.spacexlaunches.ui.utils
+package com.levirs.spacexlaunches.feature
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.levirs.spacexlaunches.di.scope.FeatureScope
 import javax.inject.Inject
 import javax.inject.Provider
 
