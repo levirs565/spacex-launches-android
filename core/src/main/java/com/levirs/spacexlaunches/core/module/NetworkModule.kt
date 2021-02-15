@@ -17,11 +17,13 @@ class NetworkModule {
 
     @Provides
     fun provideOkHttpClient() = OkHttpClient.Builder()
-        .certificatePinner(CertificatePinner.Builder().run {
-            add(mDomain, "sha256/3rWuRCFN0knGaXU31iJp+qSe2iOn7VBJwRRd0ZVe/14=")
-            add(mDomain, "sha256/FEzVOUp4dF3gI0ZVPRJhFbSJVXR+uQmMH65xhs1glH4=")
-            build()
-        })
+        .certificatePinner(
+            CertificatePinner.Builder().run {
+                add(mDomain, "sha256/3rWuRCFN0knGaXU31iJp+qSe2iOn7VBJwRRd0ZVe/14=")
+                add(mDomain, "sha256/FEzVOUp4dF3gI0ZVPRJhFbSJVXR+uQmMH65xhs1glH4=")
+                build()
+            }
+        )
         .build()
 
     @Provides
@@ -34,7 +36,7 @@ class NetworkModule {
     @Provides
     fun provideRemoteApi(okHttpClient: OkHttpClient, converter: GsonConverterFactory) =
         Retrofit.Builder()
-            .baseUrl("https://${mDomain}/v4/")
+            .baseUrl("https://$mDomain/v4/")
             .client(okHttpClient)
             .addConverterFactory(converter)
             .build()
