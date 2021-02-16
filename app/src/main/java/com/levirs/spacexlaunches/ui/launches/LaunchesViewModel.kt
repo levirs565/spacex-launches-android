@@ -6,12 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.core.domain.usecase.LaunchesUseCase
 import com.levirs.spacexlaunches.core.domain.util.LaunchSortBy
-import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -25,7 +25,7 @@ class LaunchesViewModel @Inject constructor(
     )
 
     private val mReloadEvent = MutableSharedFlow<Unit>(replay = 1)
-    private val mSortBy = MutableStateFlow(LaunchSortBy.FLIGHT_NUMBER_ASC)
+    private val mSortBy = MutableStateFlow(LaunchSortBy.FLIGHT_NUMBER_DESC)
     private val mFilterByState = MutableStateFlow<LaunchEntity.State?>(null)
     private val mFilterByName = MutableStateFlow("")
     val launches by lazy {
