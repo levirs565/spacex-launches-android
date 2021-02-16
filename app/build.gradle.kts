@@ -50,6 +50,7 @@ val daggerCompiler: String by rootProject.extra
 val junit: String by rootProject.extra
 val extJunit: String by rootProject.extra
 val espressoCore: String by rootProject.extra
+val leakCanary: String by rootProject.extra
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
@@ -59,6 +60,7 @@ dependencies {
     implementation(navigationDynamicFeature)
     implementation(recyclerView)
     kapt(daggerCompiler)
+    debugImplementation(leakCanary)
     testImplementation(junit)
     androidTestImplementation(extJunit)
     androidTestImplementation(espressoCore)
