@@ -3,20 +3,20 @@ package com.levirs.spacexlaunches.core.data
 import androidx.paging.*
 import com.levirs.spacexlaunches.core.data.local.LocalDataSource
 import com.levirs.spacexlaunches.core.data.local.entity.LocalLaunchEntity
-import com.levirs.spacexlaunches.core.data.remote.RemoteApi
+import com.levirs.spacexlaunches.core.data.remote.RemoteDataSource
 import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.core.domain.repository.LaunchesRepository
 import com.levirs.spacexlaunches.core.domain.util.LaunchSortBy
 import com.levirs.spacexlaunches.core.domain.util.ResultState
-import javax.inject.Inject
-import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
+import javax.inject.Inject
+import javax.inject.Singleton
 
 @Singleton
 class LaunchesDataSource @Inject constructor(
-    private val mRemoteApi: RemoteApi,
+    private val mRemoteDataSource: RemoteDataSource,
     private val mLocalDataSource: LocalDataSource
 ) : LaunchesRepository {
     private val mPageConfig = PagingConfig(
@@ -31,7 +31,7 @@ class LaunchesDataSource @Inject constructor(
         if (mRocketsChecked) return
 
         if (mLocalDataSource.getAllRocketsIds().isEmpty())
-            mRemoteApi.getRockets().forEach {
+            mRemoteDataSource.getRockets().forEach {
                 mLocalDataSource.saveRocket(it.toLocalRocket())
             }
         mRocketsChecked = true
@@ -41,7 +41,7 @@ class LaunchesDataSource @Inject constructor(
         if (mLaunchesChecked) return
 
         if (mLocalDataSource.getAllLaunchesIds().isEmpty())
-            mRemoteApi.getLaunches().forEach {
+            mRemoteDataSource.getLaunches().forEach {
                 mLocalDataSource.saveLaunch(it.toLocalLaunch())
             }
         mLaunchesChecked = true
