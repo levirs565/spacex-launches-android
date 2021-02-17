@@ -42,7 +42,8 @@ class LaunchesAdapter(
         )
     }
 
-    inner class ViewHolder(val binding: ItemLaunchBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemLaunchBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(data: LaunchEntity) = with(binding) {
             tvName.text = data.name
             UIUtils.updateLaunchStateChip(binding.cpState, data.state)
