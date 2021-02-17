@@ -34,8 +34,8 @@ class NetworkModule {
     )
 
     @Provides
-    fun provideRemoteApi(okHttpClient: OkHttpClient, converter: GsonConverterFactory)
-            : RemoteApi =
+    fun provideRemoteApi(okHttpClient: OkHttpClient, converter: GsonConverterFactory):
+            RemoteApi =
         Retrofit.Builder()
             .baseUrl("https://$mDomain/v4/")
             .client(okHttpClient)
