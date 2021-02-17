@@ -19,13 +19,15 @@ abstract class AbstractLaunchesFragment : Fragment(R.layout.fragment_launches) {
         val TAG = AbstractLaunchesFragment::class.java.simpleName
     }
 
-    private lateinit var mBinding: FragmentLaunchesBinding
+    private var _mBinding: FragmentLaunchesBinding? = null
+    private val mBinding: FragmentLaunchesBinding
+        get() = _mBinding!!
     private lateinit var mAdapter: LaunchesAdapter
     abstract val emptyTextResource: Int
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mBinding = FragmentLaunchesBinding.bind(view)
+        _mBinding = FragmentLaunchesBinding.bind(view)
         mAdapter = LaunchesAdapter(mAdapterCallback)
 
         mBinding.rvLaunches.apply {
@@ -86,5 +88,11 @@ abstract class AbstractLaunchesFragment : Fragment(R.layout.fragment_launches) {
         override fun onItemClicked(item: LaunchEntity) {
             onItemClick(item)
         }
+    }
+
+    override fun onDestroyView() {
+        mBinding.rvLaunches.adapter = null
+        _mBinding = null
+        super.onDestroyView()
     }
 }
