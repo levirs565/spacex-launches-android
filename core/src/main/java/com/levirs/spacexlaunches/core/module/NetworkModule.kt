@@ -16,7 +16,7 @@ class NetworkModule {
     private val mDomain = "api.spacexdata.com"
 
     @Provides
-    fun provideOkHttpClient() = OkHttpClient.Builder()
+    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
         .certificatePinner(
             CertificatePinner.Builder().run {
                 add(mDomain, "sha256/3rWuRCFN0knGaXU31iJp+qSe2iOn7VBJwRRd0ZVe/14=")
@@ -27,14 +27,15 @@ class NetworkModule {
         .build()
 
     @Provides
-    fun provideGsonConverter() = GsonConverterFactory.create(
+    fun provideGsonConverter(): GsonConverterFactory = GsonConverterFactory.create(
         GsonBuilder()
             .registerTypeAdapter(OffsetDateTime::class.java, OffsetDateTimeGsonDeserializer())
             .create()
     )
 
     @Provides
-    fun provideRemoteApi(okHttpClient: OkHttpClient, converter: GsonConverterFactory) =
+    fun provideRemoteApi(okHttpClient: OkHttpClient, converter: GsonConverterFactory)
+            : RemoteApi =
         Retrofit.Builder()
             .baseUrl("https://$mDomain/v4/")
             .client(okHttpClient)

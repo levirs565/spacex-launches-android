@@ -16,7 +16,7 @@ import com.levirs.spacexlaunches.databinding.FragmentLaunchesBinding
 
 abstract class AbstractLaunchesFragment : Fragment(R.layout.fragment_launches) {
     companion object {
-        val TAG = AbstractLaunchesFragment::class.java.simpleName
+        val TAG: String = AbstractLaunchesFragment::class.java.simpleName
     }
 
     private var _mBinding: FragmentLaunchesBinding? = null
