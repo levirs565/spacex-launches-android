@@ -28,4 +28,12 @@ class MainActivity : AppCompatActivity() {
 
         title = navController.currentDestination?.label
     }
+
+    override fun onBackPressed() {
+        if (onBackPressedDispatcher.hasEnabledCallbacks()) {
+            onBackPressedDispatcher.onBackPressed()
+            return
+        }
+        finishAfterTransition()
+    }
 }
