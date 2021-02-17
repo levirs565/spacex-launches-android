@@ -14,11 +14,4 @@ data class LocalRocketEntity(
         id = this.id,
         name = this.name
     )
-
-    companion object {
-        fun fromDomainRocket(rocket: RocketEntity) = LocalRocketEntity(
-            id = rocket.id,
-            name = rocket.name
-        )
-    }
 }

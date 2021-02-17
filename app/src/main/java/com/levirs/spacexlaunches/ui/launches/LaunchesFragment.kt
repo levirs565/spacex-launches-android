@@ -20,16 +20,13 @@ import com.levirs.spacexlaunches.getAppComponent
 import com.levirs.spacexlaunches.ui.base.launches.AbstractLaunchesFragment
 import com.levirs.spacexlaunches.ui.utils.UIUtils
 import com.levirs.spacexlaunches.ui.utils.getKey
-import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
 class LaunchesFragment : AbstractLaunchesFragment() {
-    companion object {
-        val TAG = LaunchesFragment::class.java.simpleName
-    }
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -71,7 +68,7 @@ class LaunchesFragment : AbstractLaunchesFragment() {
     }
 
     private val mQueryTextListener =
-        object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+        object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
