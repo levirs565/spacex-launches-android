@@ -8,11 +8,11 @@ import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.core.domain.repository.LaunchesRepository
 import com.levirs.spacexlaunches.core.domain.util.LaunchSortBy
 import com.levirs.spacexlaunches.core.domain.util.ResultState
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
-import javax.inject.Inject
-import javax.inject.Singleton
 
 @Singleton
 class LaunchesDataSource @Inject constructor(
