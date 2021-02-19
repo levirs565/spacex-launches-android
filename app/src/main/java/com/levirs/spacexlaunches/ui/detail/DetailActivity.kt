@@ -51,7 +51,6 @@ class DetailActivity : AppCompatActivity() {
         ): Boolean {
             return false
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
