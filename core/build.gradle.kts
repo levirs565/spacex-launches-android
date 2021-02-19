@@ -57,7 +57,6 @@ val espressoCore: String by rootProject.extra
 val appCompat: String by rootProject.extra
 val constraintLayout: String by rootProject.extra
 val material: String by rootProject.extra
-val coil: String by rootProject.extra
 val sqlCipher: String by rootProject.extra
 val sqlKtx: String by rootProject.extra
 
@@ -78,7 +77,6 @@ dependencies {
     api(appCompat)
     api(constraintLayout)
     api(material)
-    api(coil)
     implementation(sqlCipher)
     implementation(sqlKtx)
     testImplementation(junit)

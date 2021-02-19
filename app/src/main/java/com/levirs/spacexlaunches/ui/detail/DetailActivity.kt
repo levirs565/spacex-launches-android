@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navArgs
-import coil.load
+import com.bumptech.glide.Glide
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.databinding.ActivityDetailBinding
@@ -70,7 +70,9 @@ class DetailActivity : AppCompatActivity() {
             bindLinks(launch.links)
         }
 
-        mBinding.imgPatch.load(launch.largePatch)
+        Glide.with(this)
+            .load(launch.largePatch)
+            .into(mBinding.imgPatch)
         mBinding.fab.setImageResource(
             if (launch.isFavorite)
                 R.drawable.ic_favorite_checked

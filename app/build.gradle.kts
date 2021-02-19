@@ -51,6 +51,8 @@ val junit: String by rootProject.extra
 val extJunit: String by rootProject.extra
 val espressoCore: String by rootProject.extra
 val leakCanary: String by rootProject.extra
+val glide: String by rootProject.extra
+val glideCompiler: String by rootProject.extra
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
@@ -60,6 +62,8 @@ dependencies {
     implementation(navigationDynamicFeature)
     implementation(recyclerView)
     kapt(daggerCompiler)
+    implementation(glide)
+    kapt(glideCompiler)
     debugImplementation(leakCanary)
     testImplementation(junit)
     androidTestImplementation(extJunit)

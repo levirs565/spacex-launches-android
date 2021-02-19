@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.bumptech.glide.Glide
 import com.levirs.spacexlaunches.R
 import com.levirs.spacexlaunches.core.domain.entity.LaunchEntity
 import com.levirs.spacexlaunches.databinding.ItemLaunchBinding
@@ -53,11 +53,16 @@ class LaunchesAdapter(
             )
                 .format(data.launchDateTime)
             if (data.smallPatch != null)
-                imgPatch.load(data.smallPatch) {
-                    placeholder(R.drawable.img_placeholder_loading)
-                    error(R.drawable.img_placeholder_broken)
-                }
-            else imgPatch.load(R.drawable.img_rocket_blank)
+                Glide.with(root)
+                    .load(data.smallPatch)
+                    .placeholder(R.drawable.img_placeholder_loading)
+                    .error(R.drawable.img_placeholder_broken)
+                    .into(imgPatch)
+            else {
+                Glide.with(root)
+                    .clear(imgPatch)
+                imgPatch.setImageResource(R.drawable.img_rocket_blank)
+            }
 
             root.setOnClickListener {
                 callback.onItemClicked(data)
